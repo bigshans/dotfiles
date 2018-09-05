@@ -40,8 +40,11 @@ sudo apt-get install latex-cjk-chinese
 sudo apt-get install hibernate
 sudo apt-get install default-jdk
 sudo apt-get install graphciz
+sudo apt-get install thunderbird
+sudo apt-get install thunderbird-l10n-zh-cn
 wget http://mirrors.aliyun.com/deepin/pool/main/c/chmsee/chmsee_1.3.0-3_amd64.deb
 sudo apt install ./chmsee_1.3.0-3_amd64.deb
+sudo apt install dconf-editor
 rm -rf chmsee*
 git clone https://gitee.com/aerian/Deepin-wine-QQ-TIM-Debian.git
 cd Deepin-wine-QQ-TIM-Debian
