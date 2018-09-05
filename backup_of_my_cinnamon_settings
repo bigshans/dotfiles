@@ -1,0 +1,213 @@
+[/]
+desktop-effects-unmaximize-transition='easeNone'
+desktop-effects-maximize-transition='easeInExpo'
+applet-cache-updated=1534385713
+active-display-scale=1
+desktop-effects-map-effect='traditional'
+command-history=['emacs -nw', 'emacs', 'konsole emacs -nw', 'konsole', 'vim']
+hotcorner-layout=[':false:0', 'desktop:true:0', 'expo:true:0', 'scale:true:0']
+desktop-effects-close-effect='traditional'
+desktop-effects-style='cinnamon'
+enabled-desklets=['clock@cinnamon.org:0:1025:550']
+desktop-effects-unmaximize-time=100
+desktop-effects-map-time=175
+panels-scale-text-icons=['1:false', '2:true']
+desktop-effects-minimize-effect='traditional'
+alttab-switcher-style='icons+preview'
+workspace-osd-duration=400
+desklet-snap-interval=25
+panels-height=['1:29', '2:25']
+next-applet-id=58
+panel-launchers=['DEPRECATED']
+desktop-effects-map-transition='easeOutQuad'
+desktop-effects-maximize-time=100
+enable-indicators=true
+desktop-effects-unmaximize-effect='none'
+panels-enabled=['2:0:top']
+desktop-effects-tile-transition='easeInQuad'
+panels-resizable=['1:true', '2:true']
+desktop-effects-maximize-effect='none'
+enabled-applets=['panel2:right:6:user@cinnamon.org:28', 'panel2:right:5:systray@cinnamon.org:29', 'panel2:right:4:network@cinnamon.org:30', 'panel2:left:2:panel-launchers@cinnamon.org:31', 'panel2:right:2:betterlock:33', 'panel2:right:3:workspace-switcher@cinnamon.org:35', 'panel2:left:0:menu@cinnamon.org:36', 'panel2:left:4:windows-quick-list@cinnamon.org:40', 'panel2:center:0:calendar@cinnamon.org:47', 'panel2:right:8:show-desktop@cinnamon.org:50', 'panel2:left:3:removable-drives@cinnamon.org:52', 'panel2:right:1:settings@cinnamon.org:55', 'panel2:right:0:notifications@cinnamon.org:57']
+desktop-effects-minimize-time=200
+alttab-switcher-delay=100
+desktop-effects-tile-effect='none'
+desktop-effects-close-transition='easeOutQuad'
+desktop-effects-minimize-transition='easeInQuad'
+panel-edit-mode=false
+panels-show-delay=['1:500', '2:0']
+panels-hide-delay=['1:500', '2:0']
+desktop-effects-close-time=175
+next-desklet-id=1
+workspace-osd-y=50
+favorite-apps=['cinnamon-settings.desktop', 'pidgin.desktop', 'nemo.desktop', 'org.kde.konsole.desktop', 'gnome-system-monitor.desktop']
+workspace-osd-x=50
+desktop-effects-tile-time=100
+panels-autohide=['1:intel', '2:false']
+device-aliases=['/org/freedesktop/UPower/devices/battery_BAT0:=ASUSTeK ASUS Battery']
+no-adjacent-panel-barriers=true
+
+[desktop/interface]
+text-scaling-factor=1.0
+cursor-size=23
+font-name='Microsoft YaHei 10'
+cursor-theme='deepin'
+scaling-factor=uint32 0
+clock-show-seconds=false
+cursor-blink-time=1200
+icon-theme='Marwaita Icons (Light)'
+toolkit-accessibility=true
+gtk-theme='deepin'
+clock-show-date=true
+
+[desktop/keybindings/custom-keybindings/custom6]
+binding=['<Super>j']
+command='deepin-screenshot --icon'
+name='deepin截图'
+
+[desktop/keybindings/custom-keybindings/custom2]
+binding=['<Alt>c']
+command='deepin-picker'
+name='采色'
+
+[desktop/keybindings/custom-keybindings/custom5]
+binding=['<Super>c']
+command='deepin-picker'
+name='采色'
+
+[desktop/keybindings/custom-keybindings/custom1]
+binding=['<Super>Print']
+command='deepin-screen-recorder'
+name='录屏'
+
+[desktop/keybindings/custom-keybindings/custom4]
+binding=['<Super>x']
+command="konsole -e \"zsh -i -c 'tmux a || tmux'\""
+name='tmux-session'
+
+[desktop/keybindings/custom-keybindings/custom0]
+binding=['<Super>v']
+command='gvim'
+name='启动gvim'
+
+[desktop/keybindings/custom-keybindings/custom3]
+binding=['<Super>m']
+command='emacs'
+name='启动emacs'
+
+[desktop/keybindings]
+looking-glass-keybinding=@as []
+custom-list=['custom0', 'custom1', 'custom2', 'custom3', 'custom4', 'custom5', 'custom6']
+magnifier-zoom-in=['<Alt><Super>equal']
+magnifier-zoom-out=['<Alt><Super>KP_Subtract']
+
+[desktop/keybindings/media-keys]
+area-screenshot=['<Shift>Print']
+terminal=['<Primary><Alt>t']
+www=['XF86WWW', '<Super>g']
+screensaver=['<Super>l', 'XF86ScreenSaver']
+
+[desktop/keybindings/wm]
+switch-to-workspace-1=['<Primary>F1']
+switch-to-workspace-2=['<Primary>F2']
+move-to-workspace-2=['<Primary><Shift>F2']
+move-to-workspace-1=['<Primary><Shift>F1']
+move-to-workspace-4=['<Primary><Shift>F4']
+move-to-workspace-3=['<Primary><Shift>F3']
+switch-to-workspace-4=['<Primary>F4']
+switch-to-workspace-down=['<Control><Alt>Down', '<Super>Tab']
+switch-to-workspace-3=['<Primary>F3']
+toggle-on-all-workspaces=@as []
+minimize=['<Shift><Super>m']
+
+[desktop/media-handling]
+autorun-never=false
+
+[desktop/screensaver]
+screensaver-name=''
+xscreensaver-hack='metaballs'
+
+[desktop/applications/terminal]
+exec='konsole'
+
+[desktop/notifications]
+fade-opacity=40
+remove-old=true
+
+[desktop/privacy]
+recent-files-max-age=-1
+
+[desktop/wm/preferences]
+min-window-opacity=30
+button-layout='menu:minimize,maximize,close'
+theme='deepin'
+num-workspaces=4
+titlebar-font='Arial Unicode MS 11'
+workspace-names=@as []
+
+[desktop/a11y/applications]
+screen-keyboard-enabled=true
+screen-reader-enabled=false
+
+[desktop/a11y/mouse]
+secondary-click-enabled=false
+secondary-click-time=1.2
+dwell-time=1.2
+dwell-threshold=10
+dwell-click-enabled=false
+
+[desktop/sound]
+event-sounds=false
+
+[desktop/background]
+picture-uri='file:///home/aerian/图片/70480368_p0.jpg'
+picture-options='zoom'
+
+[desktop/background/slideshow]
+image-source='directory:///home/aerian/图片'
+delay=15
+
+[muffin]
+button-layout='menu,shade:minimize,maximize,close'
+resize-threshold=24
+tile-hud-threshold=25
+
+[theme]
+name='qob'
+
+[settings-daemon/plugins/power]
+sleep-inactive-ac-timeout=0
+sleep-display-battery=1800
+button-power='interactive'
+lid-close-battery-action='suspend'
+lid-close-ac-action='suspend'
+sleep-display-ac=1800
+sleep-inactive-battery-timeout=0
+
+[settings-daemon/plugins/xsettings]
+antialiasing='rgba'
+menus-have-icons=true
+hinting='full'
+
+[settings-daemon/peripherals/touchpad]
+motion-threshold=1
+custom-acceleration=true
+motion-acceleration=8.1506849315068486
+custom-threshold=false
+natural-scroll=true
+touchpad-enabled=true
+
+[settings-daemon/peripherals/keyboard]
+repeat-interval=uint32 30
+delay=uint32 500
+numlock-state='on'
+
+[settings-daemon/peripherals/mouse]
+drag-threshold=8
+motion-threshold=1
+motion-acceleration=1.5
+double-click=400
+
+[cinnamon-session]
+prefer-hybrid-sleep=true
+quit-delay-toggle=false
+quit-time-delay=60
