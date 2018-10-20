@@ -141,21 +141,21 @@ alias gv="gvim"
 alias pg="sudo apt-get upgrade"
 alias pan="BaiduPCS-Go"
 alias startdate="date -d \"$(awk -F. '{print $1}' /proc/uptime) second ago\" +\"%Y-%m-%d %H:%M:%S\""
-# alias runningtime="cat /proc/uptime| awk -F. '{run_days=$1 / 86400;run_hour=($1 % 86400)/3600;run_minute=($1 % 3600)/60;run_second=$1 % 60;printf(\"系统已运行：%d天%d时%d分%d秒\",run_days,run_hour,run_minute,run_second)}'" # 不起作用
-#
 alias fuck='eval $(thefuck $(fc -ln -1));'
 alias p3='python3'
 alias emd='emacs --daemon'
 alias e='emacsclient -c -n'
 # alias emacs='emacs24'
 alias desktop='~/桌面'
-alias transAuToMp='mencoder -oac mp3lame -ovc copy -of rawaudio'
+# alias transAuToMp='mencoder -oac mp3lame -ovc copy -of rawaudio'
 alias ipy="ipython"
-alias lwebpack="node_modules/.bin/webpack"
-alias lwebpack-dev-server="./node_modules/.bin/webpack-dev-server"
+# alias lwebpack="node_modules/.bin/webpack"
+# alias lwebpack-dev-server="./node_modules/.bin/webpack-dev-server"
 alias pp="sudo apt-get update"
 alias fzfp="fzf --preview 'cat {}'"
 alias update="sudo apt-get update"
-alias -s cpp="gvim"
+alias -s cpp="vim"
+alias -s py="vim"
+alias -s diary="vim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
