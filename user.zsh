@@ -1,7 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
 export PATH="./node_modules/.bin:$PATH"
 export PATH=$PATH:/sbin
 # source /etc/profile
@@ -13,7 +9,7 @@ export PATH="/home/aerian/.cask:$PATH"
 # export TERM=xterm-256color
 
 
-#function
+#function {{
 function template() {
     if [ $# -eq 1 ];then
         cp ~/模板/Template.$1 ./Template.$1
@@ -45,14 +41,40 @@ function gitpage() {
         git add . && git commit -m "添加博文" && git push
     elif [ $1 = 'clean' ];then
         hexo clean
+    elif [ $1 = 'deploy' ];then
+        hexo g
+        hexo s
     fi
 }
 
+# added by Miniconda2 4.5.12 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+function conda-init() {
+    __conda_setup="$(CONDA_REPORT_ERRORS=false '/home/aerian/.miniconda2/bin/conda' shell.bash hook 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        \eval "$__conda_setup"
+    else
+        if [ -f "/home/aerian/.miniconda2/etc/profile.d/conda.sh" ]; then
+            . "/home/aerian/.miniconda2/etc/profile.d/conda.sh"
+            CONDA_CHANGEPS1=false conda activate base
+        else
+            \export PATH="/home/aerian/.miniconda2/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+}
+# <<< conda init <<<
+
+# }}
+
 
 setxkbmap -option ctrl:swapcaps
+# alias {{
 alias refresh="source ~/.zshrc"
 alias p="python"
 alias p2="python2"
+alias p3="ipython3"
 alias ifconfig="/sbin/ifconfig"
 alias q="exit"
 alias cls="clear"
@@ -84,23 +106,7 @@ alias rm="rm -i"
 alias pc="proxychains"
 alias cat="bat"
 
+# }}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# added by Miniconda2 4.5.12 installer
-# >>> conda init >>>
-# !! Contents within this block are managed by 'conda init' !!
-function conda-init() {
-    __conda_setup="$(CONDA_REPORT_ERRORS=false '/home/aerian/.miniconda2/bin/conda' shell.bash hook 2> /dev/null)"
-    if [ $? -eq 0 ]; then
-        \eval "$__conda_setup"
-    else
-        if [ -f "/home/aerian/.miniconda2/etc/profile.d/conda.sh" ]; then
-            . "/home/aerian/.miniconda2/etc/profile.d/conda.sh"
-            CONDA_CHANGEPS1=false conda activate base
-        else
-            \export PATH="/home/aerian/.miniconda2/bin:$PATH"
-        fi
-    fi
-    unset __conda_setup
-}
-# <<< conda init <<<
