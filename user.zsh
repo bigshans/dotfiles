@@ -10,6 +10,15 @@ export PATH="/home/aerian/.cask:$PATH"
 
 
 #function {{
+
+function mp4Tomp3() {
+    ffmpeg -i $1 -acodec libmp3lame -ac 2 -ab 160k -ar 48000 $2
+}
+
+function restart_compton() {
+    kill $(pgrep compton)
+    compton -c -f -o 1.0 -I 0.1 -O 0.1 -C -i 0.95 -z --vsync opengl-swc --paint-on-overlay --backend glx --shadow-exclude "! name~=''" -b --use-ewmh-active-win --glx-no-stencil
+}
 function template() {
     if [ $# -eq 1 ];then
         cp ~/模板/Template.$1 ./Template.$1
@@ -84,7 +93,8 @@ alias gv="gvim"
 alias pg="sudo apt-get upgrade"
 alias pan="BaiduPCS-Go"
 alias startdate="date -d \"$(awk -F. '{print $1}' /proc/uptime) second ago\" +\"%Y-%m-%d %H:%M:%S\""
-alias fuck='eval $(thefuck $(fc -ln -1));'
+alias what='eval $(thefuck $(fc -ln -1));'
+alias ge='git clone'
 alias p3='python3'
 alias emd='emacs --daemon'
 alias e='emacsclient -c -n'
@@ -103,8 +113,11 @@ alias -s diary="vim"
 alias diary="cd ~/.yandex.disk/diary && ./diary_create && cd -"
 alias upgrade="sudo apt-get update ; sudo apt-get upgrade"
 alias rm="rm -i"
-alias pc="proxychains"
-alias cat="bat"
+alias pc="proxychains -q"
+alias emnw="emacs -nw"
+alias doom="~/.emacs.d/bin/doom"
+alias code="vscodium"
+# alias cat="bat"
 
 # }}
 

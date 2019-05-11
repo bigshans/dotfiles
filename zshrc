@@ -16,3 +16,4 @@ antigen theme mira
 antigen apply
 
 bindkey '^x^c' "exit"
+source $HOME/.profile
