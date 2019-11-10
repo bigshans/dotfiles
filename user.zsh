@@ -1,15 +1,8 @@
-export PATH="./node_modules/.bin:$PATH"
-export PATH=$PATH:/sbin
-# source /etc/profile
-export PATH=$PATH:/opt/cling/bin
-export PATH=$PATH:/mnt/D/github/cquery/build
-export PATH=$PATH:/home/aerian/.npm-global/bin
-export PATH="/home/aerian/.cask:$PATH"
-. /usr/share/autojump/autojump.sh
 # export TERM=xterm-256color
 
 
 #function {{
+
 
 function mp4Tomp3() {
     ffmpeg -i $1 -acodec libmp3lame -ac 2 -ab 160k -ar 48000 $2
@@ -39,21 +32,22 @@ function gitpage() {
     fi
     if [ -z $1 ];then
         return
-    elif [ $1 = 'new' ];then
-        hexo new $2
-    elif [ $1 = 'server' ];then
-        hexo s
-    elif [ $1 = 'complier' ];then
-        hexo g
-    elif [ $1 = 'push' ];then
-        hexo deploy -g
-        git add . && git commit -m "添加博文" && git push
-    elif [ $1 = 'clean' ];then
-        hexo clean
-    elif [ $1 = 'deploy' ];then
-        hexo g
-        hexo s
     fi
+    case $1 in
+        'new' )
+            hexo new $2;;
+        'server' )
+            hexo s;;
+        'complier' )
+            hexo g;;
+        'push' )
+            hexo deploy -g
+            git add . && git commit -m "添加博文" && git push;;
+        'clean' )
+            hexo clean;;
+        'deploy' | 'run' )
+            hexo clean && hexo g && hexo s;;
+    esac
 }
 
 # added by Miniconda2 4.5.12 installer
@@ -116,10 +110,8 @@ alias rm="rm -i"
 alias pc="proxychains -q"
 alias emnw="emacs -nw"
 alias doom="~/.emacs.d/bin/doom"
-alias code="vscodium"
+# alias code="vscodium"
 # alias cat="bat"
 
 # }}
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

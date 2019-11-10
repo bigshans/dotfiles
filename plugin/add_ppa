@@ -1,0 +1,33 @@
+#!/bin/bash
+if [ $# -eq 1 ]
+    NM=$(uname -a && date)
+    NAME=$(echo $NM | md5sum | cut -f1 -d" ")
+then
+    ppa_name=$(echo "$1" | cut -d":" -f2 -s)
+    version_name=$2
+    if [ -z "$version_name" ]
+    then
+        version_name="cosmic"
+    fi
+    if [ -z "$ppa_name" ]
+    then
+        echo "PPA name not found"
+        echo "Utility to add PPA repositories in your debian machine"
+        echo "add_ppa ppa:user/ppa-name [version]"
+    else
+        echo "$ppa_name"
+        echo "deb http://ppa.launchpad.net/$ppa_name/ubuntu $version_name main"
+        sudo add-apt-repository "deb http://ppa.launchpad.net/$ppa_name/ubuntu $version_name main"
+        echo "Get the public key from apt-get update"
+        sudo apt-get update | grep "NO_PUBKEY" > /tmp/${NAME}_apt_add_key.txt
+        key=$(cat /tmp/${NAME}_apt_add_key.txt | awk '{print $3}')
+        echo "Get the public key $key"
+        # sudo apt-get update >> /dev/null | 2> /tmp/${NAME}_apt_add_key.txt
+        # key=$(cat /tmp/${NAME}_apt_add_key.txt | cut -d":" -f6 | cut -d" " -f3)
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $key
+        rm -rf /tmp/${NAME}_apt_add_key.txt
+    fi
+else
+    echo "Utility to add PPA repositories in your debian machine"
+    echo "add_ppa ppa:user/ppa-name [version]"
+fi
