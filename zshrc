@@ -24,7 +24,6 @@ antigen bundle pure
 antigen apply
 
 bindkey '^x^c' "exit"
-source $HOME/.profile
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GOPROXY=https://mirrors.aliyun.com/goproxy/
@@ -40,3 +39,4 @@ export GO111MODULE=on
 export GOPROXY="https://goproxy.io"
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
+export ANDROID_ROOT=$HOME/Android/Sdk
