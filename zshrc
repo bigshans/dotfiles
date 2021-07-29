@@ -42,8 +42,9 @@ zinit ice lucid wait='0'
 # zinit snippet OMZL::functions.zsh
 zinit light ohmyzsh/ohmyzsh
 
-zinit light zsh-users/zsh-completions
-# zinit light  marlonrichert/zsh-autocomplete 
+# zinit light zsh-users/zsh-completions
+zinit light Aloxaf/fzf-tab
+# zinit light  marlonrichert/zsh-autocomplete
 zinit light skywind3000/z.lua
 zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
@@ -60,24 +61,28 @@ source $HOME/dotfiles/user.zsh
 bindkey '^x^c' "exit"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export GOPROXY=https://mirrors.aliyun.com/goproxy/
+# export GOPROXY=https://mirrors.aliyun.com/goproxy/
+# 配置 GOPROXY 环境变量
+# export GOPROXY=https://goproxy.io,direct
+export GOPROXY=https://goproxy.cn
+# 还可以设置不走 proxy 的私有仓库或组，多个用逗号相隔（可选）
+# export GOPRIVATE=git.mycompany.com,github.com/my/private
 
 # nvm() {
     # nvm $@
 # }
 
-if [ -z "$NVM_DIR" ]; then
-    export NVM_DIR=$HOME/.nvm
-    source /usr/share/nvm/nvm.sh
-    source /usr/share/nvm/bash_completion
-    source /usr/share/nvm/install-nvm-exec
-fi
+
+[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+source /usr/share/nvm/nvm.sh
+source /usr/share/nvm/bash_completion
+source /usr/share/nvm/install-nvm-exec
 # nvm
 
 export NODE_ENV='development'
 # export HTTPS_PROXY=socks5://127.0.0.1:8888
-export EDITOR="/usr/bin/vim"
-export BROWSER="/usr/bin/firefox-developer-edition"
+export EDITOR="/usr/bin/nvim"
+export BROWSER="/usr/bin/firefox-nightly"
 export GO111MODULE=on
 export GOPROXY="https://goproxy.io"
 export GOPATH=$HOME/go
@@ -101,5 +106,10 @@ export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
 # end appcenter completion
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/aerian/.sdkman"
-[[ -s "/home/aerian/.sdkman/bin/sdkman-init.sh" ]] && source "/home/aerian/.sdkman/bin/sdkman-init.sh"
+export PATH=$HOME/.emacs.d/bin:$PATH
+# [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+# export PATH=/opt/graalvm-ce-java11-21.0.0.2/bin:$PATH
+# export JAVA_HOME=/opt/graalvm-ce-java11-21.0.0.2
+export PATH=~/.npm-global/bin:$PATH
+export SONAR_SCANNER_HOME="/opt/sonar-scanner"
+export PATH="${PATH}:${SONAR_SCANNER_HOME}/bin"

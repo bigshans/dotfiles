@@ -50,6 +50,7 @@ function gitpage() {
     esac
 }
 
+
 # added by Miniconda2 4.5.12 installer
 # >>> conda init >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -72,7 +73,7 @@ function conda-init() {
 # }}
 
 
-setxkbmap -option ctrl:swapcaps
+# setxkbmap -option ctrl:swapcaps
 # alias {{
 alias refresh="source ~/.zshrc"
 alias p="python"
@@ -114,8 +115,18 @@ alias doom="~/.emacs.d/bin/doom"
 alias n="nvim"
 alias v="/usr/bin/vim"
 alias vim="nvim"
+# git alias
+alias gcz="git cz"
+alias gph='git push'
+alias gpl='git pull'
+alias ga='git add'
+alias gaa='git add .'
+# yarn
+alias ynd='yarn run dev'
+alias yns='yarn run start'
+alias open='xdg-open'
 # alias code="vscodium"
 # alias cat="bat"
 
 # }}
-
+source $HOME/dotfiles/alias.zsh
