@@ -26,30 +26,7 @@ function runningtime() {
     cat /proc/uptime| awk -F. '{run_days=$1 / 86400;run_hour=($1 % 86400)/3600;run_minute=($1 % 3600)/60;run_second=$1 % 60;printf("系统已运行：%d天%d时%d分%d秒",run_days,run_hour,run_minute,run_second)}'
 }
 
-function gitpage() {
-    if [ -z $(pwd | grep 'gitpage') ];then
-        cd /mnt/D/gitpage
-    fi
-    if [ -z $1 ];then
-        return
-    fi
-    case $1 in
-        'new' )
-            hexo new $2;;
-        'server' )
-            hexo s;;
-        'complier' )
-            hexo g;;
-        'push' )
-            hexo deploy -g
-            git add . && git commit -m "添加博文" && git push;;
-        'clean' )
-            hexo clean;;
-        'deploy' | 'run' )
-            hexo clean && hexo g && hexo s;;
-    esac
-}
-
+source $HOME/dotfiles/gitpage.sh
 
 # added by Miniconda2 4.5.12 installer
 # >>> conda init >>>
@@ -129,4 +106,5 @@ alias open='xdg-open'
 # alias cat="bat"
 
 # }}
+
 source $HOME/dotfiles/alias.zsh

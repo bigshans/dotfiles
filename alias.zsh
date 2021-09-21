@@ -126,6 +126,7 @@ alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commi
 
 alias history='fc -l 1'
 alias lah='ls -lah'
+alias ppy='pypy3'
 
 # alias trash-cli
 alias tl='trash-list'
@@ -141,3 +142,5 @@ alias en='trans -t english'
 alias cn='trans'
 alias mk='mkdir'
 alias sl='exa'
+alias tnode='ts-node'
+alias cp='cp -r'
