@@ -5,3 +5,4 @@ Aloxaf/fzf-tab
 skywind3000/z.lua
 zdharma/fast-syntax-highlighting
 romkatv/powerlevel10k
+mfaerevaag/wd

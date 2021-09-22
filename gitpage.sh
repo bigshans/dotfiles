@@ -1,4 +1,4 @@
-function gitpage() {
+function blog() {
     local BLOG='/projects/aerian/mygithub/blog'
     if [ -z $(pwd | grep 'blog') ];then
         cd $BLOG
@@ -32,16 +32,20 @@ function gitpage() {
             cd $BLOG
             hugo server
             cd ${OLDPWD};;
-        'push' )
+        'deploy' )
             cd $BLOG
             git add . && git commit -m "add one blog" && git push && git push
+            cd ${OLDPWD};;
+        'push' )
+            cd $BLOG
+            git push && git push
             cd ${OLDPWD};;
         'rm' )
             rm -i $BLOG/content/post/$2.md;;
     esac
 }
 
-function _gitpage() {
+function _blog() {
     local op=${COMP_WORDS[1]} # 获取 gitpage 的操作
     local suggest=() # 补全结果
     local BLOG='/projects/aerian/mygithub/blog'
@@ -51,6 +55,8 @@ function _gitpage() {
     fi
     case $op in
         'new' )
+            ;;
+        'deploy' )
             ;;
         'push' )
             ;;
@@ -62,7 +68,7 @@ function _gitpage() {
         'server' )
             ;;
         * ) # 不完整，以上是补全完整的，完整的且后面无须补全的就不补全
-            suggest=($(compgen -W 'new open push rm server' $op))
+            suggest=($(compgen -W 'new open push deploy rm server' $op))
     esac
     COMPREPLY=(${suggest[@]})
 }
@@ -70,4 +76,4 @@ function _gitpage() {
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
-complete -F _gitpage gitpage
+complete -F _blog blog
