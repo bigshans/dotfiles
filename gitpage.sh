@@ -1,3 +1,4 @@
+source <(hugo completion zsh)
 function blog() {
     local BLOG='/projects/aerian/mygithub/blog'
     if [ -z $(pwd | grep 'blog') ];then
@@ -34,7 +35,7 @@ function blog() {
             cd ${OLDPWD};;
         'deploy' )
             cd $BLOG
-            git add . && git commit -m "add one blog" && git push && git push
+            git add . && git commit -m ":package: add or update a blog post" && git push && git push
             cd ${OLDPWD};;
         'push' )
             cd $BLOG
