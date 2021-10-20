@@ -102,9 +102,10 @@ alias gaa='git add .'
 alias ynd='yarn run dev'
 alias yns='yarn run start'
 alias open='xdg-open'
+alias cm="$HOME/dotfiles/cm.sh"
+complete -W "update add config fix init remove wip break ignore typo refactor test" $HOME/dotfiles/cm.sh
 # alias code="vscodium"
 # alias cat="bat"
 
 # }}
-
 source $HOME/dotfiles/alias.zsh

@@ -130,7 +130,7 @@ alias ppy='pypy3'
 
 # alias trash-cli
 alias tl='trash-list'
-alias tr='trash-restore'
+alias ts='trash-restore'
 alias tm='trash'
 
 # alias default
