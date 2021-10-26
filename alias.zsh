@@ -127,6 +127,7 @@ alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commi
 alias history='fc -l 1'
 alias lah='ls -lah'
 alias ppy='pypy3'
+alias adb-start='sudo adb kill-server && sudo adb start-server'
 
 # alias trash-cli
 alias tl='trash-list'

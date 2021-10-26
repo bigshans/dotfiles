@@ -34,6 +34,9 @@ case $1 in
     refactor )
         emoji=':recycle:'
         ;;
+    ui )
+        emoji=':lipstick:'
+        ;;
     test )
         emoji=':test_tube:'
         ;;
@@ -52,6 +55,7 @@ Operator
     ignore 更新或添加 .gitignore
     typo   打字错误
     refactor 重构
+    ui     更新 ui 样式
     test   测试
 '
         ;;
@@ -59,11 +63,11 @@ esac
 
 if [ $emoji ]; then  
   git status
-  if [ $2 ]; then
+  if [ ! -n "$2" ]; then
+    read -ep "$1: $(emojify $emoji) " commit
+    git commit -m "$emoji $commit"
+  else
     emojify "commit: $emoji $2"
     git commit -m "$emoji $2"
-  else
-    read -p "$1: $(emojify $emoji) " commit
-    git commit -m "$emoji $commit"
   fi
 fi
