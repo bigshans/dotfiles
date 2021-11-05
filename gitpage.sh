@@ -14,6 +14,7 @@ function blog() {
             if [ ! -f $p ]; then
                 hugo new post/$2.md
             fi
+            local edit=''
             vared -p "使用 1) vim 2) typora :" -c edit
             case "$edit" in
                 "1" )

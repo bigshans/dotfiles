@@ -26,7 +26,7 @@ case $1 in
         emoji=':boom:'
         ;;
     ignore )
-        emoji=':see_no_evil'
+        emoji=':see_no_evil:'
         ;;
     typo )
         emoji=':pencil2:'
