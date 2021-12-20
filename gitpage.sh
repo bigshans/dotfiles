@@ -15,13 +15,16 @@ function blog() {
                 hugo new post/$2.md
             fi
             local edit=''
-            vared -p "使用 1) vim 2) typora :" -c edit
+            vared -p "使用 1) vim 2) marktext 3) typora :" -c edit
             case "$edit" in
                 "1" )
-                    echo 'opening vim'
+                    echo 'opening with vim'
                     /usr/bin/nvim $p;;
                 "2" )
-                    echo 'opening typora'
+                    echo 'opening with marktext'
+                    /usr/bin/marktext $p;;
+                "3" )
+                    echo 'opening with typora'
                     /usr/bin/typora $p;;
             esac
             ;;

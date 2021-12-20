@@ -146,3 +146,6 @@ alias mk='mkdir'
 alias sl='exa'
 alias ts='ts-node'
 alias cp='cp -r'
+alias crm='rm -rf'
+
+alias vlang='/usr/bin/v'

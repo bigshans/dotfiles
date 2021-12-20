@@ -23,15 +23,11 @@ export GOPROXY=https://goproxy.cn
     # nvm $@
 # }
 
-[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-source /usr/share/nvm/nvm.sh
-source /usr/share/nvm/bash_completion
-source /usr/share/nvm/install-nvm-exec
-# nvm
 
 export NODE_ENV='development'
 # export HTTPS_PROXY=socks5://127.0.0.1:8888
 export EDITOR="/usr/bin/nvim"
+# export BROWSER="/usr/bin/firefox-developer-edition"
 export BROWSER="/usr/bin/firefox-nightly"
 export GO111MODULE=on
 export GOPROXY="https://goproxy.io"
@@ -65,3 +61,10 @@ export SONAR_SCANNER_HOME="/opt/sonar-scanner"
 export PATH="${PATH}:${SONAR_SCANNER_HOME}/bin"
 export PATH=${PATH}:$HOME/.cargo/bin
 . $HOME/dotfiles/user.zsh
+export METALS_JAVA_OPTS='-XX:+UseG1GC -XX:+UseStringDeduplication -Xss4m -Xms100m'
+
+[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+source /usr/share/nvm/nvm.sh >/dev/null 2>&1
+source /usr/share/nvm/bash_completion > /dev/null 2>&1
+source /usr/share/nvm/install-nvm-exec >/dev/null 2>&1
+# nvm
