@@ -149,3 +149,4 @@ alias cp='cp -r'
 alias crm='rm -rf'
 
 alias vlang='/usr/bin/v'
+alias post="msync gen && vim new_post && msync queue post new_post && msync sync -s && rm -f new_post"

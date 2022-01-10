@@ -43,6 +43,8 @@ done
 export ANDROID_SDK_ROOT=/mnt/disk/Android
 export ANDROID_HOME=/mnt/disk/Android/
 export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
+# Add Local Script
+export PATH=$PATH:$HOME/dotfiles/scripts
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# swapname: 交换文件名。
+
+if [[ ! -f "$1" || ! -f "$2" ]]; then
+    echo "$1 or $2 is not existed." >&2
+    exit 1
+fi
+
+if [[ "$1" -ef "$2" ]]; then
+    echo "$1 and $2 is same file." >&2
+    exit 2
+fi
+
+tmp=$(mktemp ./swap2.file.$$.XXXX)
+mv "$1" $tmp
+mv "$2" "$1"
+mv $tmp "$2"
+
