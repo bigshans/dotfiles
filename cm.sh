@@ -40,6 +40,9 @@ case $1 in
     test )
         emoji=':test_tube:'
         ;;
+    doc )
+        emoji=':memo:'
+        ;;
     * )
       echo 'Usage:
     $ cm operator [commit]

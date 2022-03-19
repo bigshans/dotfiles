@@ -2,7 +2,6 @@ ohmyzsh/ohmyzsh
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 Aloxaf/fzf-tab
-skywind3000/z.lua
 zdharma-continuum/fast-syntax-highlighting
 romkatv/powerlevel10k
 mfaerevaag/wd

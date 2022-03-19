@@ -148,5 +148,13 @@ alias ts='ts-node'
 alias cp='cp -r'
 alias crm='rm -rf'
 
+# paru alias
+alias pa='paru'
+alias par='paru -Ss'
+alias pai='paru -S'
+alias pau='paru -Rsu'
+alias pac='paru -Sc'
+alias ppi='proxychains -q paru -S'
+
 alias vlang='/usr/bin/v'
 alias post="msync gen && vim new_post && msync queue post new_post && msync sync -s && rm -f new_post"

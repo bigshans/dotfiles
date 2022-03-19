@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# swap ctrl and capslock
+
+if [[ $DESKTOP_SESSION == 'xfce' ]];then
+    setxkbmap -option ctrl:swapcaps
+fi

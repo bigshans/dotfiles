@@ -23,14 +23,15 @@ export GOPROXY=https://goproxy.cn
     # nvm $@
 # }
 
-
+eval "$(zoxide init zsh)"
+eval "$(mcfly init zsh)"
 export NODE_ENV='development'
 # export HTTPS_PROXY=socks5://127.0.0.1:8888
 export EDITOR="/usr/bin/nvim"
 # export BROWSER="/usr/bin/firefox-developer-edition"
 export BROWSER="/usr/bin/firefox-nightly"
 export GO111MODULE=on
-export GOPROXY="https://goproxy.io"
+# export GOPROXY="https://goproxy.io"
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 IN=$(gem env gempath)
@@ -42,9 +43,10 @@ do
 done
 export ANDROID_SDK_ROOT=/mnt/disk/Android
 export ANDROID_HOME=/mnt/disk/Android/
-export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
+export ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/
 # Add Local Script
 export PATH=$PATH:$HOME/dotfiles/scripts
+export PATH=$PATH:$HOME/.local/bin
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -70,3 +72,6 @@ source /usr/share/nvm/nvm.sh >/dev/null 2>&1
 source /usr/share/nvm/bash_completion > /dev/null 2>&1
 source /usr/share/nvm/install-nvm-exec >/dev/null 2>&1
 # nvm
+
+$HOME/dotfiles/scripts/ctrlCaps
+export QT_AUTO_SCREEN_SCALE_FACTOR=1

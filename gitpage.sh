@@ -15,7 +15,7 @@ function blog() {
                 hugo new post/$2.md
             fi
             local edit=''
-            vared -p "使用 1) vim 2) marktext 3) typora :" -c edit
+            vared -p "使用 1) vim 2) marktext 3) typora 4) emacs :" -c edit
             case "$edit" in
                 "1" )
                     echo 'opening with vim'
@@ -26,6 +26,9 @@ function blog() {
                 "3" )
                     echo 'opening with typora'
                     /usr/bin/typora $p;;
+                "4" )
+                    echo 'opening with emacs'
+                    /usr/bin/emacs $p;;
             esac
             ;;
         'server' )
@@ -38,7 +41,8 @@ function blog() {
             git push && git push
             ;;
         'rm' )
-            rm -i $BLOG/content/post/$2.md;;
+            rm -i $BLOG/content/post/$2.md
+            rm -rf $BLOG/public/*;;
     esac
 }
 
