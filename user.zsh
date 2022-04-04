@@ -49,6 +49,7 @@ function conda-init() {
 
 # }}
 
+eval $(thefuck --alias)
 
 # setxkbmap -option ctrl:swapcaps
 # alias {{
@@ -65,7 +66,6 @@ alias gv="gvim"
 # alias pg="sudo apt-get upgrade"
 # alias pan="BaiduPCS-Go"
 alias startdate="date -d \"$(awk -F. '{print $1}' /proc/uptime) second ago\" +\"%Y-%m-%d %H:%M:%S\""
-alias fuck='eval $(thefuck $(fc -ln -1));'
 alias ge='git clone'
 alias p3='python3'
 alias emd='emacs --daemon'

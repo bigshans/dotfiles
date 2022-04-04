@@ -9,7 +9,9 @@ autoload -Uz compinit
 compinit
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins.txt
-bindkey '^x^c' "exit"
+bindkey -s '^o^p' "xdg-open . 1>/dev/null 2>/dev/null^M"
+bindkey -s '^o^o' "vim^M"
+bindkey -s '^o^l' "ranger^M"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # export GOPROXY=https://mirrors.aliyun.com/goproxy/
@@ -60,7 +62,8 @@ export PATH=$HOME/.emacs.d/bin:$PATH
 # [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 # export PATH=/opt/graalvm-ce-java11-21.0.0.2/bin:$PATH
 # export JAVA_HOME=/opt/graalvm-ce-java11-21.0.0.2
-export PATH=~/.npm-global/bin:$PATH
+# export PATH=$PATH:~/.npm-global/bin
+export PATH=$PATH:~/.config/yarn/global/node_modules/.bin
 export SONAR_SCANNER_HOME="/opt/sonar-scanner"
 export PATH="${PATH}:${SONAR_SCANNER_HOME}/bin"
 export PATH=${PATH}:$HOME/.cargo/bin
