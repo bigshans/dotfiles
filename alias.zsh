@@ -156,5 +156,9 @@ alias pau='paru -Rsu'
 alias pac='paru -Sc'
 alias ppi='proxychains -q paru -S'
 
+alias pack-marktext='mv linux-unpacked marktext-x64 && tar cvf marktext-x64.tar.gz marktext-x64'
+
 alias vlang='/usr/bin/v'
 alias post="msync gen && vim new_post && msync queue post new_post && msync sync -s && rm -f new_post"
+
+alias icat="kitty +kitten icat"

@@ -78,3 +78,10 @@ source /usr/share/nvm/install-nvm-exec >/dev/null 2>&1
 
 $HOME/dotfiles/scripts/ctrlCaps
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
+# if test -n "$KITTY_INSTALLATION_DIR"; then
+    # export KITTY_SHELL_INTEGRATION="enabled"
+    # autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
+    # kitty-integration
+    # unfunction kitty-integration
+# fi
