@@ -1,4 +1,6 @@
 source <(hugo completion zsh)
+RED='\033[0;31m'
+NC='\033[0m' # No Color
 function blog() {
     local BLOG='/projects/aerian/mygithub/blog'
     cd $BLOG
@@ -9,7 +11,11 @@ function blog() {
         'new' )
             hugo new post/$2.md
             ;;
-        'open' )
+        'open'|'post' )
+            if [ "$2" = '' ];then
+                echo "${RED}Error Usage${NC}: 缺少参数"
+                return
+            fi
             local p="$BLOG/content/post/$2.md"
             if [ ! -f $p ]; then
                 hugo new post/$2.md
@@ -61,7 +67,7 @@ function _blog() {
             ;;
         'push' )
             ;;
-        'open' ) # 补全与 rm 相同
+        'open'|'post' ) # 补全与 rm 相同
             # suggest=($(compgen -W "$(ls $BLOG/content/post | cut -d . -f1)" ${COMP_WORDS[2]}));;
             ;&
         'rm' )
@@ -74,7 +80,7 @@ function _blog() {
     COMPREPLY=(${suggest[@]})
 }
 
-autoload -U +X compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
+# autoload -U +X compinit && compinit
+# autoload -U +X bashcompinit && bashcompinit
 
 complete -F _blog blog

@@ -1,4 +1,4 @@
-export TERM=xterm-256color
+# export TERM=xterm-256color
 
 
 #function {{
@@ -92,6 +92,7 @@ alias doom="~/.emacs.d/bin/doom"
 alias n="nvim"
 alias v="/usr/bin/vim"
 alias vim="nvim"
+alias vimdiff="nvim -d"
 # git alias
 alias gcz="git cz"
 alias gph='git push'
