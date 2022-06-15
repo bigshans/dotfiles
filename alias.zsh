@@ -163,6 +163,7 @@ alias post="msync gen && vim new_post && msync queue post new_post && msync sync
 
 alias icat="kitty +kitten icat"
 alias code996='/bin/bash -c "$(curl -fsSL https://fastly.jsdelivr.net/gh/hellodigua/code996/bin/code996.sh)"'
+# alias wttr="curl wttr.in"
 
 # to fix kitty ssh
 [[ "$TERM" == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"

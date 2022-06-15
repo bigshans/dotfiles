@@ -1,0 +1,73 @@
+#!/bin/bash
+
+URL="https://wttr.in/"
+URLv2="https://v2.wttr.in/"
+URLv3="https://v3.wttr.in/"
+
+Help()
+{
+echo -e "
+Write 'wttr {your+city+name}' to check the  weather condition of your city.
+Surround city name with single- or double-quotes if city name contains more than one word.
+You can also put a '+' (plus-sign) in beetween words when you do not want to surround with quotes.
+Examples:
+   wttr
+   wttr cologne
+   wttr \"Den Haag, Netherland\"
+   wttr Den+Haag
+   wttr \"Den Haag Street, South Africa\"
+   wttr New+York
+You can type 'wttr' only if you have defined a standard city.
+Parameters:
+    -h for some help (this page)
+    -m for photo of moon
+    -v2 to fetch different weather report view for the standard city
+    -v2 {your city name} to fetch different weather report view for city mentioned
+    -v3 {your city name} to fetch an in-terminal graphic for the given region.
+Hint:
+     When using '-v3' you do not need to add the '.sxl' to the
+     end of the region/city name. The script will add it automatically.
+Any bugs? Any suggestions? Contact information at https://cbrueggenolte.de/impressum
+"
+}
+
+if [ "$#" == "0" ] && [ "$def" == "" ];then
+    curl wttr.in
+elif [ "$#" -gt "2" ];then
+    echo -e "too many parameters.\n"
+else
+    case $1 in
+        "-h")
+            Help
+            ;;
+        "-m")
+            curl http://wttr.in/moon
+            ;;
+        "-v2")
+            if [ "$#" == "2" ];then
+                city="$2"
+                city=${city// /+}
+                city=${city//[^a-zA-Z0-9+]}
+                curl $URLv2"$city"
+            else
+                curl $URLv2"$def"
+            fi
+            ;;
+        "-v3")
+            if [ "$#" == "2" ];then
+                city="$2"
+                city=${city// /+}
+                city=${city//[^a-zA-Z0-9+]}
+                curl $URLv3"$city".sxl
+            else
+                curl $URLv3"$def".sxl
+            fi
+            ;;
+        *)
+            city=$1
+            city=${city// /+}
+            city=${city//[^a-zA-Z0-9+]}
+            curl $URL"$city"
+            ;;
+    esac
+fi
