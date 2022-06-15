@@ -58,9 +58,17 @@ else
                 city="$2"
                 city=${city// /+}
                 city=${city//[^a-zA-Z0-9+]}
-                curl $URLv3"$city".sxl
+                if [[ "$TERM" == "xterm-kitty" ]];then
+                    curl -s $URLv3"$city".png | kitty icat --align=left
+                else
+                    curl $URLv3"$city".sxl
+                fi
             else
-                curl $URLv3"$def".sxl
+                if [[ "$TERM" == "xterm-kitty" ]];then
+                    curl -s $URLv3"$def".png | kitty icat --align=left
+                else
+                    curl $URLv3"$def".sxl
+                fi
             fi
             ;;
         *)
