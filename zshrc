@@ -78,45 +78,14 @@ export PATH=${PATH}:$HOME/.cargo/bin
 . $HOME/dotfiles/user.zsh
 export METALS_JAVA_OPTS='-XX:+UseG1GC -XX:+UseStringDeduplication -Xss4m -Xms100m'
 
-# [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-# source /usr/share/nvm/nvm.sh >/dev/null 2>&1
-# source /usr/share/nvm/bash_completion > /dev/null 2>&1
-# source /usr/share/nvm/install-nvm-exec >/dev/null 2>&1
-#
-# lazy load nvm {{
-lazynvm() {
-  unset -f nvm node npm npx
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-  if [ -f "$NVM_DIR/bash_completion" ]; then
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-  fi
-}
-
-nvm() {
-  lazynvm 
-  nvm $@
-}
- 
-node() {
-  lazynvm
-  node $@
-}
- 
-npm() {
-  lazynvm
-  npm $@
-}
-
-npx() {
-  lazynvm
-  npx $@
-}
-# lazynvm load nvm }}
-
 $HOME/dotfiles/scripts/ctrlCaps
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export N_PREFIX=$HOME/.n
+export NPM_PACKAGES="$HOME/.npm-packages"
+export PATH=$N_PREFIX/bin:$PATH
+export PATH=$NPM_PACKAGES/bin:$PATH
+# export PATH="$NPM_PACKAGES/bin:$PATH"
 
 # if test -n "$KITTY_INSTALLATION_DIR"; then
     # export KITTY_SHELL_INTEGRATION="enabled"
@@ -124,3 +93,5 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
     # kitty-integration
     # unfunction kitty-integration
 # fi
+export PATH="$HOME/.basher/bin:$PATH"   ##basher5ea843
+eval "$(basher init - zsh)"             ##basher5ea843
