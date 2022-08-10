@@ -1,0 +1,5 @@
+#!/bin/sh
+# 更新 dotfiles
+
+git push carrot
+git push github
