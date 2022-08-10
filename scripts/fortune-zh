@@ -1,0 +1,32 @@
+#!/bin/sh
+# fortune-zh
+set -e
+
+FORTUNE="/usr/bin/fortune"
+[ -x $FORTUNE ] || ( echo "E: Please install package 'fortune-mod'."; false )
+
+# The old version (1.*) of fortune-zh contains only tang300 and song100.
+# Note, $\sum_{i} P_i = 1$, i.e. all the possibilities must sum to 1.
+DICT="7% tang300 2% song100 91% chinese"
+
+# check LANG
+if [ ! -z $LC_ALL ]; then
+	LANG="$LC_ALL"
+fi
+
+# output according to LANG
+case "$LANG" in
+"zh_CN.GB2312")
+	LANG=zh_CN.UTF8 $FORTUNE $DICT | iconv -c -f utf8 -t gbk
+	;;
+"zh_TW.Big5")
+	LANG=zh_TW.UTF8 $FORTUNE $DICT | iconv -c -f utf8 -t big5
+	;;
+*)
+	if [ ! -z "$FORTUNEZH_NOCOLOR" ]; then
+		$FORTUNE $DICT | sed -r "s/\x1b\[([0-9]{1,2}(;[0-9]{1,2})?)?m//g"
+	else
+		$FORTUNE $DICT
+	fi
+	;;
+esac
