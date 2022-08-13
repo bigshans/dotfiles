@@ -10,19 +10,30 @@ local K_CTSH = function (key, action)
     return K('CTRL|SHIFT', key, action)
 end
 
+local keys = {
+    K_CTSH('(', act.SplitHorizontal { domain = 'CurrentPaneDomain' }),
+    K_CTSH(')', act.SplitVertical { domain = 'CurrentPaneDomain' }),
+    K_CTSH('x', act.TogglePaneZoomState ),
+    K('CTRL', 'w', act.CloseCurrentPane { confirm = true }),
+    K('CTRL', 'q', act.CloseCurrentTab { confirm = true }),
+    K_CTSH('z', act.ActivateCopyMode)
+}
+
+for _, v in ipairs {'Left', 'Right', 'Up', 'Down'} do
+    table.insert(keys, K('ALT', v .. 'Arrow', act.ActivatePaneDirection(v)))
+end
+
+for i = 1, 8 do
+  -- CTRL+ALT + number to activate that tab
+  table.insert(keys, {
+    key = tostring(i),
+    mods = 'CTRL|ALT',
+    action = act.ActivateTab(i - 1),
+  })
+end
+
 return {
-    keys = {
-        K_CTSH('(', act.SplitHorizontal { domain = 'CurrentPaneDomain' }),
-        K_CTSH(')', act.SplitVertical { domain = 'CurrentPaneDomain' }),
-        K_CTSH('x', act.TogglePaneZoomState ),
-        K('ALT', 'LeftArrow', act.ActivatePaneDirection 'Left'),
-        K('ALT', 'RightArrow', act.ActivatePaneDirection 'Right'),
-        K('ALT', 'UpArrow', act.ActivatePaneDirection 'Up'),
-        K('ALT', 'DownArrow', act.ActivatePaneDirection 'Down'),
-        K('CTRL', 'w', act.CloseCurrentPane { confirm = true }),
-        K('CTRL', 'q', act.CloseCurrentTab { confirm = true }),
-        K_CTSH('z', act.ActivateCopyMode)
-    },
+    keys = keys,
     colors = darcula,
     tab_bar_at_bottom = true,
     use_fancy_tab_bar = false,
