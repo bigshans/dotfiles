@@ -92,9 +92,9 @@ alias pc="proxychains -q"
 alias emnw="emacs -nw"
 alias doom="~/.emacs.d/bin/doom"
 # alias n="nvim"
-alias v="/usr/bin/vim"
-alias vim="nvim"
-alias vimdiff="nvim -d"
+# alias v="/usr/bin/vim"
+# alias vim="nvim"
+# alias vimdiff="nvim -d"
 # git alias
 alias gcz="git cz"
 alias gph='git push'

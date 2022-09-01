@@ -41,7 +41,7 @@ eval "$(zoxide init zsh)"
 # eval "$(mcfly init zsh)"
 export NODE_ENV='development'
 # export HTTPS_PROXY=socks5://127.0.0.1:8888
-export EDITOR="/usr/bin/nvim"
+# export EDITOR="/usr/bin/nvim"
 # export BROWSER="/usr/bin/firefox-developer-edition"
 export BROWSER="/usr/bin/firefox-nightly"
 export GO111MODULE=on
