@@ -1,0 +1,7 @@
+#!/bin/env bash
+
+bakfile=$1
+origin=${bakfile%.bak}
+
+echo mv $bakfile $origin
+mv $bakfile $origin
