@@ -123,6 +123,7 @@ alias gup='git pull --rebase'
 alias gupv='git pull --rebase -v'
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip--"'
+alias gcz='git cz'
 
 alias history='fc -l 1'
 alias lah='ls -lah'
@@ -164,6 +165,7 @@ alias post="msync gen && vim new_post && msync queue post new_post && msync sync
 alias icat="kitty +kitten icat"
 alias code996='/bin/bash -c "$(curl -fsSL https://fastly.jsdelivr.net/gh/hellodigua/code996/bin/code996.sh)"'
 alias lg="lazygit"
+alias old-pnpm="~/.npm-packages/bin/pnpm" 
 # alias wttr="curl wttr.in"
 
 # to fix kitty ssh
