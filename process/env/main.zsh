@@ -29,7 +29,6 @@ export PATH=$PATH:~/.config/yarn/global/node_modules/.bin
 export SONAR_SCANNER_HOME="/opt/sonar-scanner"
 export PATH="${PATH}:${SONAR_SCANNER_HOME}/bin"
 export PATH=${PATH}:$HOME/.cargo/bin
-. $HOME/dotfiles/user.zsh
 export METALS_JAVA_OPTS='-XX:+UseG1GC -XX:+UseStringDeduplication -Xss4m -Xms100m'
 
 $HOME/dotfiles/scripts/ctrlCaps
