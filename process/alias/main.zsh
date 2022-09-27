@@ -1,3 +1,59 @@
+eval $(thefuck --alias)
+
+# setxkbmap -option ctrl:swapcaps
+# alias {{
+alias refresh="source ~/.zshrc"
+alias p="python"
+alias p2="python2"
+alias p3="ipython3"
+alias ifconfig="/sbin/ifconfig"
+alias q="exit"
+alias cls="clear"
+alias vi="/usr/bin/vim"
+alias nv="/usr/bin/nvim"
+alias gv="gvim"
+# alias pg="sudo apt-get upgrade"
+# alias pan="BaiduPCS-Go"
+alias startdate="date -d \"$(awk -F. '{print $1}' /proc/uptime) second ago\" +\"%Y-%m-%d %H:%M:%S\""
+alias ge='git clone'
+alias p3='python3'
+alias emd='emacs --daemon'
+alias e='emacsclient -c -n'
+# alias emacs='emacs24'
+alias desktop='~/桌面'
+# alias transAuToMp='mencoder -oac mp3lame -ovc copy -of rawaudio'
+alias ipy="ipython"
+# alias lwebpack="node_modules/.bin/webpack"
+# alias lwebpack-dev-server="./node_modules/.bin/webpack-dev-server"
+# alias pp="sudo apt-get update"
+alias fzfp="fzf --preview 'cat {}'"
+# alias update="sudo apt-get update"
+alias update="sudo pacman -Syu"
+alias -s cpp="vim"
+# alias -s py="vim"
+alias -s diary="vim"
+alias -s ts="ts-node"
+alias -s js="node"
+alias diary="cd ~/.yandex.disk/diary && ./diary_create && cd -"
+alias upgrade="sudo apt-get update ; sudo apt-get upgrade"
+alias rm="rm -i"
+alias pc="proxychains -q"
+alias emnw="emacs -nw"
+alias doom="~/.emacs.d/bin/doom"
+# alias n="nvim"
+# alias v="/usr/bin/vim"
+# alias vim="nvim"
+# alias vimdiff="nvim -d"
+# git alias
+alias gcz="git cz"
+alias gph='git push'
+alias gpl='git pull'
+# yarn
+alias ynd='yarn run dev'
+alias yns='yarn run start'
+alias open='xdg-open'
+alias cm="$HOME/dotfiles/cm.sh"
+
 # alias for git
 alias g=git
 alias ga='git add'
@@ -134,9 +190,6 @@ alias adb-start='sudo adb kill-server && sudo adb start-server'
 alias tl='trash-list'
 alias ts='trash-restore'
 alias tm='trash'
-
-# alias default
-# alias nvd='nvm use default'
 
 # alias application
 alias br='$BROWSER -P'
