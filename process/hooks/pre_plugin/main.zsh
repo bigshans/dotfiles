@@ -24,4 +24,5 @@ end_plug () {
         antidote bundle < ~/.zsh_plugins.txt > $complied
     fi
     source $complied
+    unset PLUGINS complied
 }

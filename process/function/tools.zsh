@@ -16,6 +16,26 @@ function template() {
     fi
     # cp ~/模板/Template.$1 ./Template.$1
 }
+
 function runningtime() {
     cat /proc/uptime| awk -F. '{run_days=$1 / 86400;run_hour=($1 % 86400)/3600;run_minute=($1 % 3600)/60;run_second=$1 % 60;printf("系统已运行：%d天%d时%d分%d秒",run_days,run_hour,run_minute,run_second)}'
+}
+
+function update_plugin() {
+    (( $+commands[antidote] )) && source $antidote/antidote/antidote.zsh
+    antidote update
+}
+
+reload() {
+    for proc in ${scripts[@]}
+    do
+        if [[ $proc == $1 ]] then
+            . $PROJECT/process/hooks/pre_$proc/main.zsh
+            . $PROJECT/process/$proc/main.zsh
+            . $PROJECT/process/hooks/after_$proc/main.zsh
+            echo "reload "$1" finished!"
+            return
+        fi
+    done
+    source ~/.zshrc
 }
