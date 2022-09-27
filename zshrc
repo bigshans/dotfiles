@@ -2,7 +2,7 @@
 
 export PROJECT=$HOME/dotfiles
 . $PROJECT/process/option/main.zsh
-scripts=('plugin' 'env' 'function' 'alias')
+scripts=('plugin' 'env' 'function' 'alias' 'process')
 
 for proc in ${scripts[@]}
 do

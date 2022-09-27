@@ -14,5 +14,3 @@ autoload -U +X compinit && compinit
 bindkey -s '^o^p' "xdg-open . 1>/dev/null 2>/dev/null^M"
 bindkey -s '^o^o' "vim^M"
 bindkey -s '^o^l' "ranger^M"
-
-eval "$(zoxide init zsh)"

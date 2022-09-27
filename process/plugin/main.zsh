@@ -1,12 +1,11 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+start_plug
 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+plug "bigshans/ohmyzsh"
+plug "zsh-users/zsh-completions"
+plug "zsh-users/zsh-autosuggestions"
+plug "Aloxaf/fzf-tab"
+plug "zdharma-continuum/fast-syntax-highlighting"
+plug "romkatv/powerlevel10k"
+plug "mfaerevaag/wd"
 
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-source <(antibody init)
-antibody bundle < ~/.zsh_plugins.txt
+end_plug
