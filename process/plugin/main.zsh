@@ -5,6 +5,7 @@ WHITELIST_OMZ=(
     key-bindings
     history
     directories
+    git
     # clipboard
 )
 
