@@ -37,7 +37,6 @@ alias yns='yarn run start'
 alias open='xdg-open'
 
 alias history='fc -l 1'
-alias lah='ls -lah'
 alias ppy='pypy3'
 alias adb-start='sudo adb kill-server && sudo adb start-server'
 
