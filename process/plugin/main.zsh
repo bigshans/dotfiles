@@ -1,3 +1,13 @@
+WHITELIST_OMZ=(
+    completion
+    correction
+    # grep
+    key-bindings
+    history
+    directories
+    # clipboard
+)
+
 start_plug
 
 plug "bigshans/ohmyzsh"
