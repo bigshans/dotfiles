@@ -47,9 +47,9 @@ alias tm='trash'
 
 # alias application
 alias br='$BROWSER -P'
-alias en='trans -t english'
-alias ja='trans -t ja'
-alias cn='trans'
+alias en='proxychains -q trans -t english'
+alias ja='proxychains -q trans -t ja'
+alias cn='proxychains -q trans'
 alias mk='mkdir'
 alias sl='exa'
 alias ts='ts-node'
@@ -73,5 +73,6 @@ alias icat="kitty +kitten icat"
 alias code996='/bin/bash -c "$(curl -fsSL https://fastly.jsdelivr.net/gh/hellodigua/code996/bin/code996.sh)"'
 alias lg="lazygit"
 alias old-pnpm="~/.npm-packages/bin/pnpm" 
+alias pgadmin="cd ~/pgadmin4 && ./pgadmin && cd -"
 
 source $ALIAS_PWD/git.zsh

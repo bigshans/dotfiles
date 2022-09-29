@@ -10,3 +10,5 @@ do
     . $PROJECT/process/$proc/main.zsh
     . $PROJECT/process/hooks/after_$proc/main.zsh
 done
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
