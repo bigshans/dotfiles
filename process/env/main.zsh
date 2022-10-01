@@ -1,3 +1,4 @@
+ENV_PROJECT=$PROJECT/process/env
 export GOPROXY=https://goproxy.cn
 export GO111MODULE=on
 
@@ -6,7 +7,6 @@ export BROWSER="/usr/bin/firefox-nightly"
 export GOPATH=$HOME/go
 export ANDROID_SDK_ROOT=/mnt/disk/Android
 export ANDROID_HOME=/mnt/disk/Android/
-export ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/
 
 export PATH=$HOME/.emacs.d/bin:$PATH
 export PATH=$PATH:~/.config/yarn/global/node_modules/.bin
@@ -35,3 +35,5 @@ export PATH=$NPM_PACKAGES/bin:$PATH
 
 export PATH="$HOME/.basher/bin:$PATH"   ##basher5ea843
 eval "$(basher init - zsh)"             ##basher5ea843
+
+source $ENV_PROJECT/npm.zsh
