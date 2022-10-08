@@ -1,0 +1,27 @@
+#!/usr/bin/python
+from pathlib import PosixPath
+import sys
+
+map = {}
+need_parser = sys.argv[-1]
+
+with open(PosixPath('~/.local/share/fcitx5/rime/zrm_pinyin.dict.yaml').expanduser(), 'r') as f:
+    is_start = False
+    for line in f.readlines():
+        if not is_start:
+            if line == '...\n':
+                is_start = True
+            continue
+        elif line == '\n':
+            continue
+        ls = line.replace('\n', '').split('\t')
+        if len(ls) < 2:
+            continue
+        if ls[0] in map:
+            map[ls[0]].append(ls[1])
+        else:
+            map[ls[0]] = [ls[1]]
+
+for i in range(len(need_parser)):
+    if need_parser[i] in map:
+        print(need_parser[i], ' '.join(map[need_parser[i]]))
