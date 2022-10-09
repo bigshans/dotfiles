@@ -43,3 +43,23 @@ reload() {
 slen() {
     echo $1 | wc -c
 }
+
+refresh_github_host() {
+    CURRENT_HOSTS=$(cat /etc/hosts)
+    HOSTS_START=$(echo "$CURRENT_HOSTS" | grep -n "# GitHub Host Start" | cut -d: -f1)
+    HOSTS_END=$(echo "$CURRENT_HOSTS" | grep -n "# GitHub Host End" | cut -d: -f1)
+    UPDATED_HOSTS_TEMP=$(curl -s https://git.bigshans.top/carrotAdmin/hosts/raw/branch/master/hosts)
+    UPDATED_HOSTS_START=$(echo "$UPDATED_HOSTS_TEMP" | grep -n '# GitHub Host Start' | cut -d: -f1)
+    UPDATED_HOSTS=$(echo "$UPDATED_HOSTS_TEMP" | tail -n +$(expr $UPDATED_HOSTS_START))
+    if [ -z "$HOSTS_START" ] || [ -z "$HOSTS_END" ]; then
+        NEW_HOSTS=$(echo -e "$CURRENT_HOSTS\n$UPDATED_HOSTS")
+    else
+        # Get the content of the hosts file before # GitHub Host Start
+        BEFORE_HOSTS=$(echo "$CURRENT_HOSTS" | head -n $(expr $HOSTS_START - 1))
+        # Get the content of the hosts file after # GitHub Host End
+        AFTER_HOSTS=$(echo "$CURRENT_HOSTS" | tail -n +$(expr $HOSTS_END + 1))
+        # Replace the content of the hosts file between # GitHub Host Start and # GitHub Host End with the updated hosts file
+        NEW_HOSTS=$(echo -e "$BEFORE_HOSTS\n$UPDATED_HOSTS\n$AFTER_HOSTS")
+    fi
+    echo "$NEW_HOSTS" | sudo tee /etc/hosts
+}
