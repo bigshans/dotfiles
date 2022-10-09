@@ -39,3 +39,7 @@ reload() {
     done
     source ~/.zshrc
 }
+
+slen() {
+    echo $1 | wc -c
+}
