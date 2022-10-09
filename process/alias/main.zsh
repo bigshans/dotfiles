@@ -47,9 +47,9 @@ alias tm='trash'
 
 # alias application
 alias br='$BROWSER -P'
-alias en='proxychains -q trans -t english'
-alias ja='proxychains -q trans -t ja'
-alias cn='proxychains -q trans'
+alias en='trans -t english'
+alias ja='trans -t ja'
+alias cn='trans'
 alias mk='mkdir'
 alias sl='exa'
 alias ts='ts-node'
