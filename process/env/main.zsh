@@ -32,7 +32,7 @@ export PATH="${PATH}:${SONAR_SCANNER_HOME}/bin"
 export PATH=${PATH}:$HOME/.cargo/bin
 export PATH=$N_PREFIX/bin:$PATH
 export PATH=$NPM_PACKAGES/bin:$PATH
-
+export PATH="/home/aerian/.deno/bin:$PATH"
 export PATH="$HOME/.basher/bin:$PATH"   ##basher5ea843
 eval "$(basher init - zsh)"             ##basher5ea843
 
