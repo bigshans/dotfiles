@@ -14,6 +14,7 @@ const commandDict: Record<string, string> = {
   go: "go run %f",
   rkt: "racket %f",
   py: "python %f",
+  zsh: "zsh %f",
 };
 
 if (!commandDict[ft]) {
