@@ -47,9 +47,9 @@ alias tm='trash'
 
 # alias application
 alias br='$BROWSER -P'
-alias en='trans -t english'
-alias ja='trans -t ja'
-alias cn='trans'
+alias en='pc trans -t english'
+alias ja='pc trans -t ja'
+alias cn='pc trans'
 alias mk='mkdir'
 alias sl='exa'
 alias ts='ts-node'
@@ -67,7 +67,7 @@ alias yay='paru'
 alias pack-marktext='mv linux-unpacked marktext-x64 && tar cvf marktext-x64.tar.gz marktext-x64'
 
 alias vlang='/usr/bin/v'
-alias post="msync gen && vim new_post && msync queue post new_post && msync sync -s && rm -f new_post"
+alias post="msync gen && vim new_post && msync queue post new_post && proxychains -q msync sync -s && rm -f new_post"
 
 alias icat="kitty +kitten icat"
 alias code996='/bin/bash -c "$(curl -fsSL https://fastly.jsdelivr.net/gh/hellodigua/code996/bin/code996.sh)"'

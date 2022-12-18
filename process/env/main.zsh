@@ -36,4 +36,6 @@ export PATH="/home/aerian/.deno/bin:$PATH"
 export PATH="$HOME/.basher/bin:$PATH"   ##basher5ea843
 eval "$(basher init - zsh)"             ##basher5ea843
 
+DEBUGINFOD_URLS="https://debuginfod.archlinux.org https://repo.archlinuxcn.org"
+
 source $ENV_PROJECT/npm.zsh
