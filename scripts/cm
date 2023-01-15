@@ -45,7 +45,7 @@ case $1 in
         ;;
     * )
       echo 'Usage:
-    $ cm operator [commit]
+    $ cm <operator> [commit]
 Operator
     update 更新代码
     add    添加代码、feature

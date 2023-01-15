@@ -1,0 +1,197 @@
+#!/usr/bin/python
+
+import argparse
+import subprocess
+import requests
+from os.path import expanduser, exists
+from yaml import dump, load
+from typing import Any
+try:
+    from yaml import CLoader as Loader, CDumper as Dumper
+except ImportError:
+    from yaml import Loader, Dumper
+
+CLASH_CONFIG_DIR = '~/.config/clash'
+NEDD_RESTART = True
+
+class Feed:
+    def __init__(self):
+        content = read_yaml_file(f'{CLASH_CONFIG_DIR}/subscribe.yaml')
+        self.__cached: dict[str, str] = {}
+        self.__yaml_map: dict[str, Any] = {}
+        self.feeds: dict[str, str] = content["feeds"]
+        self.default: str = content["default"] if "default" in content else list(dict.keys(content["feeds"]))[0]
+
+    def is_default(self, key):
+        return self.default == key
+
+    def is_in(self, key):
+        return key in self.feeds
+
+    def get_feed_names(self):
+        return dict.keys(self.feeds)
+
+    def get_text(self, key: str):
+        return self.__cached[key] if key in self.__cached else None
+
+    def get_yaml(self, key: str):
+        return self.__yaml_map[key] if key in self.__yaml_map else None
+
+    def obtain_text(self, key: str):
+        ret = self.get_text(key)
+        if ret == None:
+            self.fetch(key)
+            ret = self.__cached[key]
+        return ret
+
+    def obtain_yaml(self, key: str):
+        ret = self.get_yaml(key)
+        if ret == None:
+            self.parser(key)
+            ret = self.__yaml_map[key]
+        return ret
+
+    def load_config(self, key: str):
+        if not self.is_in(key):
+            return
+        p = f'{CLASH_CONFIG_DIR}/config-{key}.yaml'
+        if exists(p):
+            self.__cached[key] = read_yaml_file(p)
+        else:
+            self.fetch(key)
+            self.write_original_config(key)
+
+    def obtain_default_text(self):
+        return self.obtain_text(self.default)
+
+    def obtain_default_yaml(self):
+        return self.obtain_yaml(self.default)
+
+    def fetch(self, key: str):
+        self.__cached[key] = download(self.feeds[key])
+
+    def fetch_all(self):
+        for key in self.feeds:
+            self.fetch(key)
+
+    def parser(self, key):
+        if key in self.__cached:
+            self.__yaml_map[key] = load_yaml(self.__cached[key])
+        else:
+            self.fetch(key)
+            self.parser(key)
+
+    def parser_all(self):
+        for key in self.feeds:
+            self.parser(key)
+
+    def write_original_config(self, key):
+        if key in self.__cached:
+            p = f"{CLASH_CONFIG_DIR}/config-{key}.yaml"
+            write_clash_config(p, self.__cached[key])
+            print(f"{key} config writted in {p}!")
+
+    def write_all(self):
+        for key in self.__cached:
+            self.write_original_config(key)
+
+
+def init_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-u", "--update", help="update clash config")
+    parser.add_argument("-a", "--update-all",
+                        help="update all clash config", action="store_true")
+    parser.add_argument("-s", "--switch", help="switch to other clash config")
+    parser.add_argument("-n", "--no-restart", help="don't restart clash when default config update", action="store_false")
+    return parser
+
+def remove_key(d: dict, key: Any):
+    if key in d:
+        d.pop(key)
+
+def load_yaml(read):
+    return load(read, Loader)
+
+def dump_yaml(data: Any):
+    return dump(data, Dumper=Dumper)
+
+def read_yaml_file(path: str):
+    content = None
+    with open(expanduser(path), 'r') as f:
+        content = load_yaml(f)
+    return content
+
+def write_clash_config(path: str, data: str):
+    with open(expanduser(path), 'w') as f:
+        f.write(data)
+
+def download(url):
+    response = requests.get(url)
+    return response.text
+
+def inject_config(config: Any):
+    config["port"] = 8889
+    config["socks-port"] = 1080
+    remove_key(config, "redir-port")
+    remove_key(config, "mixed-port")
+    config["allow-lan"] = True
+    config["mode"] = "Global"
+    config["profile"] = {
+            "store-selected": True,
+            "store-fake-ip": True,
+    }
+    config["external-controller"] = "0.0.0.0:8090"
+    return config
+
+def update_default(config):
+    injected = dump(inject_config(config))
+    write_clash_config(f"{CLASH_CONFIG_DIR}/config.yaml", injected)
+    print("Default configuration is updated!")
+    if NEDD_RESTART:
+        print("Run systemctl --user restart clash.service")
+        subprocess.call(['systemctl', '--user', 'restart', 'clash.service'])
+    else:
+        print("Please run `systemctl --user restart clash.service` to restart clash")
+
+def update_all_config():
+    feeds = Feed()
+    feeds.fetch_all()
+    feeds.parser_all()
+    feeds.write_all()
+    update_default(feeds.obtain_default_yaml())
+
+def update_single(name: str):
+    feeds = Feed()
+    config = feeds.obtain_yaml(name)
+    if config is None:
+        print(f"No such config named {name}")
+        return
+    feeds.write_original_config(name)
+    if feeds.is_default(name):
+        update_default(config)
+
+def switch_config(name: str):
+    feeds = Feed()
+    if not feeds.is_in(name):
+        print(f"No such config named {name}")
+        return
+    feeds.load_config(name)
+    config = feeds.obtain_yaml(name)
+    update_default(config)
+
+def main():
+    global NEED_RESTART
+    parser = init_parser()
+    args = parser.parse_args()
+    NEED_RESTART = not args.no_restart
+    if args.update_all:
+        update_all_config()
+    elif args.update:
+        update_single(args.update)
+    elif args.switch:
+        switch_config(args.switch)
+    else:
+        parser.print_help()
+
+if __name__ == '__main__':
+    main()
