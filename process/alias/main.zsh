@@ -75,4 +75,7 @@ alias lg="lazygit"
 alias old-pnpm="~/.npm-packages/bin/pnpm" 
 alias pgadmin="cd ~/pgadmin4 && ./pgadmin && cd -"
 
+# file alias
+alias -s org="emacs -nw"
+
 source $ALIAS_PWD/git.zsh
