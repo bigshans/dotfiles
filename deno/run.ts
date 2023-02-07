@@ -15,6 +15,8 @@ const commandDict: Record<string, string> = {
   rkt: "racket %f",
   py: "python %f",
   zsh: "zsh %f",
+  cc: "g++ -g %f -o temp && ./temp; rm temp",
+  cpp: "g++ -g %f -o temp && ./temp; rm temp",
 };
 
 if (!commandDict[ft]) {
