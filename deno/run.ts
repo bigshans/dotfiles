@@ -10,13 +10,14 @@ const commandDict: Record<string, string> = {
   ts: "ts-node %f",
   js: "node %f",
   sh: "bash %f",
-  rs: "rustc %f -o temp && ./temp; rm temp",
+  rs: "rustc %f -o temp_%r1 && ./temp_%r1; rm temp_%r1",
   go: "go run %f",
   rkt: "racket %f",
   py: "python %f",
   zsh: "zsh %f",
-  cc: "g++ -g %f -o temp && ./temp; rm temp",
-  cpp: "g++ -g %f -o temp && ./temp; rm temp",
+  cc: "g++ %f -o temp_%r1 && ./temp_%r1; rm temp_%r1",
+  cpp: "gcc %f -o temp_%r1 && ./temp; rm temp_%r1",
+  c: "gcc %f -o temp_%r1 && ./temp_%r1; rm temp_%r1",
 };
 
 if (!commandDict[ft]) {
@@ -24,7 +25,14 @@ if (!commandDict[ft]) {
   Deno.exit(1);
 }
 
-const command = commandDict[ft].replace(/\%f/g, script);
+const random: Record<string, string> = {};
+const command = commandDict[ft].replace(/\%f/g, script)
+    .replace(/\%r\d*/g, (match) => {
+        if (!random[match]) {
+            random[match] = Math.floor(Math.random() * 1000000).toString();
+        }
+        return random[match].toString();
+    });
 console.log(`%c$ ${command}`, "font-weight: bold; color: green;");
 const p = Deno.run({ cmd: ["bash", "-c", command], cwd: "./" });
 await p.status();
