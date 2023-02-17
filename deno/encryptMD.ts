@@ -34,7 +34,10 @@ if (!pri) {
     Deno.exit(-1);
 }
 
-const ciphertext = CryptoJS.AES.encrypt(content.join("\n"), key).toString();
+const ciphertext = CryptoJS.AES.encrypt(content.join("\n"), key, {
+    mode: CryptoJS.mode.ECB,
+    padding: CryptoJS.pad.ZeroPadding,
+}).toString();
 
 const new_md = [yaml.join("\n"), ciphertext].join("\n");
 

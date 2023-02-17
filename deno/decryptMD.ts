@@ -35,7 +35,10 @@ if (!pri) {
 }
 
 try {
-    const bytes = CryptoJS.AES.decrypt(content[0], key);
+    const bytes = CryptoJS.AES.decrypt(content[0], key, {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.ZeroPadding,
+    });
     const decoded = bytes.toString(CryptoJS.enc.Utf8);
     if (decoded === "") {
         Deno.exit(-1);

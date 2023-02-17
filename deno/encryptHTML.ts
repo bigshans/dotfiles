@@ -22,7 +22,7 @@ if (pr) {
 
 const body = doc!.body.innerHTML;
 
-const ciphertext = CryptoJS.AES.encrypt(body, key).toString();
+const ciphertext = CryptoJS.AES.encrypt(body, key, { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.ZeroPadding }).toString();
 
 const newBody = `
 <body>
@@ -51,7 +51,7 @@ form {
 const code="${ciphertext}";
 const pwd = localStorage.getItem('password');
 function decode(key) {
-    const bytes = CryptoJS.AES.decrypt(code, key);
+    const bytes = CryptoJS.AES.decrypt(code, key, { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.ZeroPadding });
     const body = bytes.toString(CryptoJS.enc.Utf8);
     localStorage.setItem("password", key);
     document.body.innerHTML = body;
