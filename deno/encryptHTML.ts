@@ -40,11 +40,14 @@ form {
 }
 </style>
 <div>
-<div id="private" style="margin-bottom: 10px;">私人文章，需要密码。点此<a href="" onclick="history.go(-1)">返回</a>。</div>
+<div id="private" style="margin-bottom: 10px;">私人文章，需要密码。点此<a href="" style="color: red;" onclick="history.go(-1)">返回</a>。</div>
 <form name="decode">
-<input id="key" type="password" name="passowrd" />
+<input id="key" style="height: 20px;width: 100%;" type="password" name="passowrd" />
 </form>
-<button>提交</button>
+<div style="display: flex;justify-content: space-between;">
+<button style="background: #1890FF;color: white;border: none;outline: none;border-radius: 5px;padding: 5px 10px;margin-top: 10px;">提交</button>
+<button style="background: white;color: black;border: none;outline: none;border-radius: 5px;padding: 5px 10px;margin-top: 10px;border: 1px solid rgba(0, 0, 0, 0.2);" onclick="history.go(-1)">返回</button>
+</div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>

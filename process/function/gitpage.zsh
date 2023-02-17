@@ -5,8 +5,7 @@ BLOG_KEY='/projects/aerian/mygithub/blog/.KEY'
 
 function decodeAll() {
     local BLOG_PRIVATE='/projects/aerian/mygithub/blog/content/post/private'
-    files=$(ls $BLOG_PRIVATE)
-    for filename in $files; do
+    for filename in $(ls $BLOG_PRIVATE); do
         echo $filename "now decode"
         decryptMD $BLOG_PRIVATE"/"$filename $BLOG_KEY
     done
@@ -14,8 +13,7 @@ function decodeAll() {
 
 function encodeAll() {
     local BLOG_PRIVATE='/projects/aerian/mygithub/blog/content/post/private'
-    files=$(ls $BLOG_PRIVATE)
-    for filename in $files; do
+    for filename in $(ls $BLOG_PRIVATE); do
         echo $filename "now encode"
         encryptMD $BLOG_PRIVATE"/"$filename $BLOG_KEY
     done
@@ -23,10 +21,9 @@ function encodeAll() {
 
 function encodeAllHTML() {
     local BLOG_PRIVATE='/projects/aerian/mygithub/blog/public/post/private'
-    files=$(ls $BLOG_PRIVATE)
-    for folder in $files; do
+    for folder in $(ls $BLOG_PRIVATE); do
         echo $BLOG_PRIVATE"/"$folder"/index.html" "now encode"
-        encryptHTML $BLOG_PRIVATE"/"$folder"/index.html" $BLOG_KEY
+        encryptHTML $BLOG_PRIVATE/$folder/index.html $BLOG_KEY
     done
 }
 
@@ -45,6 +42,13 @@ function blog() {
             ;;
         'new' )
             hugo new post/$2.md
+            ;;
+        'private' )
+            if [ "$2" = '' ];then
+                echo "${RED}Error Usage${NC}: 缺少参数"
+                return
+            fi
+            blog open private/$2
             ;;
         'open'|'post' )
             if [ "$2" = '' ];then
@@ -91,8 +95,10 @@ function blog() {
             ;;
         'test-server' )
             cd $BLOG
+            echo "decode"
             decodeAll
             hugo
+            echo "encode"
             encodeAllHTML
             cd public
             php -S 0.0.0.0:1313
@@ -123,10 +129,12 @@ function _blog() {
             ;&
         'rm' )
             suggest=($(compgen -W "$(ls $BLOG/content/post | cut -d . -f1)" ${COMP_WORDS[COMP_CWORD-1]}));;
+        'private' )
+            suggest=($(compgen -W "$(ls $BLOG/content/post/private | cut -d . -f1)" ${COMP_WORDS[COMP_CWORD-1]}));;
         'server' )
             ;;
         * ) # 不完整，以上是补全完整的，完整的且后面无须补全的就不补全
-            suggest=($(compgen -W 'new open push rm server test-server decode encode' $op))
+            suggest=($(compgen -W 'new open push rm server test-server decode encode private' $op))
     esac
     COMPREPLY=(${suggest[@]})
 }
