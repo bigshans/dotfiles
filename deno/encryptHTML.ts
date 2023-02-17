@@ -61,7 +61,11 @@ function onsubmit() {
     decode(key);
 }
 if (pwd) {
-    decode(pwd);
+    try {
+        decode(pwd);
+    } cath {
+        localStorage.removeItem("password");
+    }
 }
 document.querySelector("button").addEventListener("click", onsubmit);
 </script>
