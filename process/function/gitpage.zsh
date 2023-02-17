@@ -78,7 +78,7 @@ function blog() {
             hugo server
             ;;
         'push' )
-            cd BLOG
+            cd $BLOG
             decodeAll
             hugo
             cd public
@@ -87,6 +87,7 @@ function blog() {
             cd ..
             encodeAll
             git add . && git commit -m 'update website'
+            git push
             ;;
         'test-server' )
             cd $BLOG
