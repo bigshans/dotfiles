@@ -1,6 +1,35 @@
 source <(hugo completion zsh)
 RED='\033[0;31m'
 NC='\033[0m' # No Color
+BLOG_KEY='/projects/aerian/mygithub/blog/.KEY'
+
+function decodeAll() {
+    local BLOG_PRIVATE='/projects/aerian/mygithub/blog/content/post/private'
+    files=$(ls $BLOG_PRIVATE)
+    for filename in $files; do
+        echo $filename "now decode"
+        decryptMD $BLOG_PRIVATE"/"$filename $BLOG_KEY
+    done
+}
+
+function encodeAll() {
+    local BLOG_PRIVATE='/projects/aerian/mygithub/blog/content/post/private'
+    files=$(ls $BLOG_PRIVATE)
+    for filename in $files; do
+        echo $filename "now encode"
+        encryptMD $BLOG_PRIVATE"/"$filename $BLOG_KEY
+    done
+}
+
+function encodeAllHTML() {
+    local BLOG_PRIVATE='/projects/aerian/mygithub/blog/public/post/private'
+    files=$(ls $BLOG_PRIVATE)
+    for folder in $files; do
+        echo $BLOG_PRIVATE"/"$folder"/index.html" "now encode"
+        encryptHTML $BLOG_PRIVATE"/"$folder"/index.html" $BLOG_KEY
+    done
+}
+
 function blog() {
     local BLOG='/projects/aerian/mygithub/blog'
     cd $BLOG
@@ -8,6 +37,12 @@ function blog() {
         return
     fi
     case $1 in
+        'decode' )
+            decodeAll
+            ;;
+        'encode' )
+            encodeAll
+            ;;
         'new' )
             hugo new post/$2.md
             ;;
@@ -22,6 +57,7 @@ function blog() {
             fi
             local edit=''
             vared -p "使用 1) vim 2) marktext 3) typora 4) emacs :" -c edit
+            decryptMD $p
             case "$edit" in
                 "1" )
                     echo 'opening with vim'
@@ -38,13 +74,27 @@ function blog() {
             esac
             ;;
         'server' )
+            decodeAll
             hugo server
             ;;
-        'deploy' )
-            git add . && git commit -m ":package: add or update a blog post" && git push && git push
-            ;;
         'push' )
-            git push && git push
+            cd BLOG
+            decodeAll
+            hugo
+            cd public
+            encodeAllHTML
+            git add . && git commit -m 'update blog' && git push
+            cd ..
+            encodeAll
+            git add . && git commit -m 'update website'
+            ;;
+        'test-server' )
+            cd $BLOG
+            decodeAll
+            hugo
+            encodeAllHTML
+            cd public
+            php -S 0.0.0.0:1313
             ;;
         'rm' )
             rm -i $BLOG/content/post/$2.md
@@ -75,7 +125,7 @@ function _blog() {
         'server' )
             ;;
         * ) # 不完整，以上是补全完整的，完整的且后面无须补全的就不补全
-            suggest=($(compgen -W 'new open push deploy rm server' $op))
+            suggest=($(compgen -W 'new open push rm server test-server decode encode' $op))
     esac
     COMPREPLY=(${suggest[@]})
 }
