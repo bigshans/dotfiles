@@ -63,7 +63,7 @@ function onsubmit() {
 if (pwd) {
     try {
         decode(pwd);
-    } cath {
+    } catch {
         localStorage.removeItem("password");
     }
 }
