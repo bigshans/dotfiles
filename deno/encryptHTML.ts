@@ -58,6 +58,7 @@ function decode(key) {
     const body = bytes.toString(CryptoJS.enc.Utf8);
     localStorage.setItem("password", key);
     document.body.innerHTML = body;
+    filled();
 }
 function onsubmit() {
     const key = document.getElementById("key").value;
@@ -68,9 +69,11 @@ if (pwd) {
         decode(pwd);
     } catch {
         localStorage.removeItem("password");
+        document.querySelector("button").addEventListener("click", onsubmit);
     }
+} else {
+    document.querySelector("button").addEventListener("click", onsubmit);
 }
-document.querySelector("button").addEventListener("click", onsubmit);
 </script>
 </body>
 `;
