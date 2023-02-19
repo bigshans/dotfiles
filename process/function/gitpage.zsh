@@ -48,6 +48,9 @@ function blog() {
                 echo "${RED}Error Usage${NC}: 缺少参数"
                 return
             fi
+            local p="$BLOG/content/post/private/$2"
+            blog new private/$2
+            sed -i '4a private: true' $p
             blog open private/$2
             ;;
         'open'|'post' )
