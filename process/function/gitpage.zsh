@@ -48,7 +48,7 @@ function blog() {
                 echo "${RED}Error Usage${NC}: 缺少参数"
                 return
             fi
-            local p="$BLOG/content/post/private/$2"
+            local p="$BLOG/content/post/private/$2.md"
             blog new private/$2
             sed -i '4a private: true' $p
             blog open private/$2
@@ -64,7 +64,7 @@ function blog() {
             fi
             local edit=''
             vared -p "使用 1) vim 2) marktext 3) typora 4) emacs :" -c edit
-            decryptMD $p
+            decryptMD $p $BLOG_KEY
             case "$edit" in
                 "1" )
                     echo 'opening with vim'

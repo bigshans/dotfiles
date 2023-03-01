@@ -8,7 +8,7 @@ export GOPATH=$HOME/go
 export ANDROID_SDK_ROOT=/mnt/disk/Android
 export ANDROID_HOME=/mnt/disk/Android/
 
-export PATH=$HOME/.emacs.d/bin:$PATH
+export PATH=$HOME/.config/emacs/bin:$PATH
 export PATH=$PATH:~/.config/yarn/global/node_modules/.bin
 export SONAR_SCANNER_HOME="/opt/sonar-scanner"
 export METALS_JAVA_OPTS='-XX:+UseG1GC -XX:+UseStringDeduplication -Xss4m -Xms100m'

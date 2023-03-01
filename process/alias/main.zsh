@@ -29,7 +29,7 @@ alias upgrade="sudo apt-get update ; sudo apt-get upgrade"
 alias rm="rm -i"
 alias pc="proxychains -q"
 alias emnw="emacs -nw"
-alias doom="~/.emacs.d/bin/doom"
+alias doom="~/.config/emacs/bin/doom"
 
 # yarn
 alias ynd='yarn run dev'
@@ -74,6 +74,8 @@ alias code996='/bin/bash -c "$(curl -fsSL https://fastly.jsdelivr.net/gh/hellodi
 alias lg="lazygit"
 alias old-pnpm="~/.npm-packages/bin/pnpm" 
 alias pgadmin="cd ~/pgadmin4 && ./pgadmin && cd -"
+
+alias gen_pkglist="comm -23 <(pacman -Qeq|sort) <(pacman -Qmq|sort) > pkglist"
 
 # file alias
 alias -s org="emacs -nw"
