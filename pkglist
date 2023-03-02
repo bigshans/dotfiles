@@ -55,6 +55,7 @@ gwenview
 htop
 imagemagick
 inetutils
+ipython
 iwd
 iwgtk
 jadx
@@ -64,6 +65,7 @@ jdk-openjdk
 joplin
 joplin-desktop
 jq
+jupyter-notebook
 kate
 kcolorchooser
 kdeconnect
@@ -125,6 +127,7 @@ ranger
 rhythmbox
 ruby
 rust
+scrcpy
 sshfs
 sudo
 tcpdump
