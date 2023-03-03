@@ -38,6 +38,7 @@ feishu-bin
 filelight
 firefox-nightly-zh-cn
 flameshot
+fossil
 freerdp
 fuse2
 fzf
@@ -67,6 +68,7 @@ joplin-desktop
 jq
 jupyter-notebook
 kate
+kchmviewer
 kcolorchooser
 kdeconnect
 keepassxc
@@ -130,6 +132,7 @@ rust
 scrcpy
 sshfs
 sudo
+tcl
 tcpdump
 telegram-desktop
 texlive-bibtexextra
