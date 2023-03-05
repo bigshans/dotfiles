@@ -43,6 +43,7 @@ freerdp
 fuse2
 fzf
 garcon
+gimp
 gitkraken
 git-lfs
 global
@@ -68,6 +69,7 @@ joplin-desktop
 jq
 jupyter-notebook
 kate
+kcalc
 kchmviewer
 kcolorchooser
 kdeconnect
@@ -89,6 +91,7 @@ linux-headers
 lrzip
 lzop
 maven
+mdbook
 mpv
 nano
 neofetch
@@ -192,6 +195,8 @@ xfwm4
 xfwm4-themes
 yakuake
 yarn
+zathura
+zathura-pdf-poppler
 zeal-git
 zettlr
 zoxide
