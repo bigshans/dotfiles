@@ -98,7 +98,6 @@ neofetch
 neovim-git
 neovim-remote
 neovim-symlinks
-networkmanager
 nextcloud-client
 nodejs
 notion-app-enhanced
@@ -128,6 +127,7 @@ pulseaudio-alsa
 pulseaudio-bluetooth
 python-pygments
 qbittorrent-enhanced-git
+qemu-full
 ranger
 rhythmbox
 ruby
@@ -157,6 +157,7 @@ thunderbird-i18n-zh-cn
 translate-shell
 trash-cli
 ts-node
+tsocks
 ttf-fira-code
 ttf-firacode-nerd
 ttf-lxgw-wenkai
