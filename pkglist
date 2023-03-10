@@ -103,6 +103,7 @@ nodejs
 notion-app-enhanced
 noto-fonts-cjk
 noto-fonts-emoji
+noto-fonts-extra
 npm
 ntfs3-dkms
 nvidia-open-dkms
@@ -132,6 +133,7 @@ ranger
 rhythmbox
 ruby
 rust
+samba
 scrcpy
 sshfs
 sudo
@@ -154,6 +156,7 @@ thunar
 thunar-volman
 thunderbird
 thunderbird-i18n-zh-cn
+tor-browser
 translate-shell
 trash-cli
 ts-node
@@ -194,6 +197,7 @@ xfconf
 xfdesktop
 xfwm4
 xfwm4-themes
+xournalpp
 yakuake
 yarn
 zathura
