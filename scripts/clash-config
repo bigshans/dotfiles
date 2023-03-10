@@ -72,7 +72,10 @@ class Feed:
 
     def fetch_all(self):
         for key in self.feeds:
-            self.fetch(key)
+            try:
+                self.fetch(key)
+            except Exception as e:
+                print(e)
 
     def parser(self, key):
         if key in self.__cached:
@@ -144,6 +147,8 @@ def inject_config(config: Any):
     return config
 
 def update_default(config):
+    if config is None:
+        return
     injected = dump(inject_config(config))
     write_clash_config(f"{CLASH_CONFIG_DIR}/config.yaml", injected)
     print("Default configuration is updated!")
