@@ -19,6 +19,7 @@ clash
 ctags
 deno
 dhcpcd
+docker
 dolphin
 dosfstools
 drawio-desktop-bin
@@ -90,6 +91,8 @@ linux-firmware
 linux-headers
 lrzip
 lzop
+man-db
+masterpdfeditor
 maven
 mdbook
 mpv
@@ -136,6 +139,7 @@ rust
 samba
 scrcpy
 sshfs
+strace
 sudo
 tcl
 tcpdump
@@ -156,6 +160,7 @@ thunar
 thunar-volman
 thunderbird
 thunderbird-i18n-zh-cn
+tldr
 tor-browser
 translate-shell
 trash-cli
