@@ -17,6 +17,7 @@ calibre
 ccls
 clash
 ctags
+dbeaver
 deno
 dhcpcd
 docker
@@ -176,6 +177,7 @@ ufw
 uget
 unarchiver
 unrar
+ventoy-bin
 virtualbox
 virtualbox-ext-vnc
 virtualbox-guest-iso
