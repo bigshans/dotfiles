@@ -46,6 +46,7 @@ fuse2
 fzf
 garcon
 gimp
+git-delta
 gitkraken
 git-lfs
 global
@@ -140,6 +141,7 @@ rust
 samba
 scrcpy
 sshfs
+sshpass
 strace
 sudo
 tcl
