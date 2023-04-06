@@ -1,3 +1,4 @@
+7-zip-full
 ack
 android-apktool
 android-studio
@@ -89,6 +90,8 @@ lib32-libva-mesa-driver
 lib32-nvidia-utils
 lib32-opencl-nvidia
 libinput-gestures
+libreoffice-still
+libreoffice-still-zh-cn
 libva-mesa-driver
 libvdpau-va-gl
 linux
@@ -122,7 +125,6 @@ obs-studio
 okular
 opencl-nvidia
 os-prober
-p7zip
 paru
 pavucontrol
 php
@@ -143,6 +145,7 @@ ruby
 rust
 samba
 scrcpy
+squashfs-tools
 sshfs
 sshpass
 strace
