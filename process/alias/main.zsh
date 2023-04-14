@@ -20,6 +20,7 @@ alias desktop='~/桌面'
 alias ipy="ipython"
 alias fzfp="fzf --preview 'cat {}'"
 alias update="sudo pacman -Syu"
+alias singi="sudo pacman -U ./*.zst"
 alias -s cpp="vim"
 alias -s diary="vim"
 alias -s ts="ts-node"

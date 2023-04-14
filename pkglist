@@ -98,6 +98,7 @@ linux
 linux-firmware
 linux-headers
 lrzip
+lua-language-server
 lzop
 man-db
 masterpdfeditor
@@ -109,6 +110,7 @@ neofetch
 neovim-git
 neovim-remote
 neovim-symlinks
+nerd-fonts-fira
 nextcloud-client
 nodejs
 notion-app-enhanced
@@ -117,6 +119,7 @@ noto-fonts-emoji
 noto-fonts-extra
 npm
 ntfs3-dkms
+ntfs-3g
 nvidia-open-dkms
 nvidia-prime
 nvidia-settings
@@ -125,6 +128,7 @@ obs-studio
 okular
 opencl-nvidia
 os-prober
+otf-firamono-nerd
 paru
 pavucontrol
 php
@@ -136,6 +140,7 @@ prettier
 proxychains-ng
 pulseaudio-alsa
 pulseaudio-bluetooth
+python-pip
 python-pygments
 qbittorrent-enhanced-git
 qemu-full
@@ -149,6 +154,7 @@ squashfs-tools
 sshfs
 sshpass
 strace
+stylua
 sudo
 tcl
 tcpdump
@@ -213,6 +219,7 @@ xfdesktop
 xfwm4
 xfwm4-themes
 xournalpp
+yaegi
 yakuake
 yarn
 zathura
