@@ -111,6 +111,7 @@ neovim-git
 neovim-remote
 neovim-symlinks
 nerd-fonts-fira
+networkmanager
 nextcloud-client
 nodejs
 notion-app-enhanced
@@ -190,6 +191,7 @@ udisks2-qt5
 ufw
 uget
 unarchiver
+unciv
 unrar
 ventoy-bin
 virtualbox
@@ -222,6 +224,7 @@ xournalpp
 yaegi
 yakuake
 yarn
+yt-dlp
 zathura
 zathura-pdf-poppler
 zeal-git
