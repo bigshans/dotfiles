@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+kquitapp5 krunner
+kstart5 krunner

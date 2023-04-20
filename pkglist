@@ -1,6 +1,5 @@
 7-zip-full
 ack
-android-apktool
 android-studio
 android-tools
 archlinuxcn-keyring
@@ -12,8 +11,6 @@ base
 base-devel
 bash-completion
 bash-language-server
-birdtray
-blueman
 calibre
 ccls
 clash
@@ -30,6 +27,7 @@ efibootmgr
 electron-netease-cloud-music
 emacs-nativecomp
 eslint
+ethtool
 exo
 fcitx5
 fcitx5-configtool
@@ -66,7 +64,6 @@ imagemagick
 inetutils
 ipython
 iwd
-iwgtk
 jadx
 jdk11-openjdk
 jdk8-openjdk
@@ -97,6 +94,7 @@ libvdpau-va-gl
 linux
 linux-firmware
 linux-headers
+logseq-desktop
 lrzip
 lua-language-server
 lzop
@@ -112,7 +110,9 @@ neovim-remote
 neovim-symlinks
 nerd-fonts-fira
 networkmanager
+networkmanager-openvpn
 nextcloud-client
+nm-connection-editor
 nodejs
 notion-app-enhanced
 noto-fonts-cjk
@@ -127,6 +127,7 @@ nvidia-settings
 obsidian
 obs-studio
 okular
+onedrive-abraunegg
 opencl-nvidia
 os-prober
 otf-firamono-nerd
@@ -140,20 +141,23 @@ postman-bin
 prettier
 proxychains-ng
 pulseaudio-alsa
-pulseaudio-bluetooth
 python-pip
 python-pygments
 qbittorrent-enhanced-git
 qemu-full
+qopenvpn
 ranger
 rhythmbox
 ruby
 rust
 samba
 scrcpy
+sddm
 squashfs-tools
 sshfs
 sshpass
+steam
+steam-native-runtime
 strace
 stylua
 sudo
@@ -177,6 +181,7 @@ thunar-volman
 thunderbird
 thunderbird-i18n-zh-cn
 tldr
+tlp
 tor-browser
 translate-shell
 trash-cli
@@ -213,9 +218,11 @@ xf86-video-amdgpu
 xfce4-appfinder
 xfce4-panel
 xfce4-power-manager
+xfce4-pulseaudio-plugin
 xfce4-session
 xfce4-settings
 xfce4-terminal
+xfce4-wavelan-plugin
 xfconf
 xfdesktop
 xfwm4
