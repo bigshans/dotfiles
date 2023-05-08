@@ -11,6 +11,7 @@ base
 base-devel
 bash-completion
 bash-language-server
+blueman
 calibre
 ccls
 clash
@@ -62,6 +63,7 @@ gwenview
 htop
 imagemagick
 inetutils
+intellij-idea-community-edition
 ipython
 iwd
 jadx
@@ -79,6 +81,7 @@ kcolorchooser
 kdeconnect
 keepassxc
 konsole
+kotlin
 krdc
 kruler
 kwalletmanager
@@ -103,6 +106,7 @@ masterpdfeditor
 maven
 mdbook
 mpv
+mysql
 nano
 neofetch
 neovim-git
@@ -141,8 +145,10 @@ postman-bin
 prettier
 proxychains-ng
 pulseaudio-alsa
+pulseaudio-bluetooth
 python-pip
 python-pygments
+python-setuptools
 qbittorrent-enhanced-git
 qemu-full
 qopenvpn
@@ -153,6 +159,7 @@ rust
 samba
 scrcpy
 sddm
+sqlitebrowser
 squashfs-tools
 sshfs
 sshpass
@@ -212,6 +219,7 @@ wqy-bitmapfont
 wqy-microhei
 wqy-microhei-lite
 wqy-zenhei
+x11docker
 xclip
 xdotool
 xf86-video-amdgpu
