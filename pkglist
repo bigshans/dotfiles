@@ -11,10 +11,12 @@ base
 base-devel
 bash-completion
 bash-language-server
+bear
 blueman
 calibre
 ccls
 clash
+cscope
 ctags
 dbeaver
 deno
@@ -28,6 +30,7 @@ efibootmgr
 electron-netease-cloud-music
 emacs-nativecomp
 eslint
+espeak-ng
 ethtool
 exo
 fcitx5
@@ -47,6 +50,7 @@ fsearch
 fuse2
 fzf
 garcon
+ghc
 gimp
 git-delta
 github-desktop-bin
@@ -83,6 +87,7 @@ keepassxc
 konsole
 kotlin
 krdc
+krita
 kruler
 kwalletmanager
 lazygit
@@ -97,6 +102,7 @@ libvdpau-va-gl
 linux
 linux-firmware
 linux-headers
+lmms
 logseq-desktop
 lrzip
 lua-language-server
@@ -146,6 +152,7 @@ prettier
 proxychains-ng
 pulseaudio-alsa
 pulseaudio-bluetooth
+pyside6
 python-pip
 python-pygments
 python-setuptools
@@ -171,18 +178,18 @@ sudo
 tcl
 tcpdump
 telegram-desktop
+texlive-basic
 texlive-bibtexextra
-texlive-core
 texlive-fontsextra
 texlive-formatsextra
 texlive-games
 texlive-humanities
 texlive-latexextra
+texlive-mathscience
 texlive-music
 texlive-pictures
 texlive-pstricks
 texlive-publishers
-texlive-science
 thunar
 thunar-volman
 thunderbird
