@@ -11,6 +11,7 @@ base
 base-devel
 bash-completion
 bash-language-server
+bat
 bear
 blueman
 calibre
@@ -51,7 +52,7 @@ fuse2
 fzf
 garcon
 ghc
-gimp
+gimp-devel
 git-delta
 github-desktop-bin
 gitkraken
@@ -60,13 +61,16 @@ global
 gnome-keyring
 gnome-weather
 go
+goldendict-ng-git
 gparted
 gradle
 grub
+gvim
 gwenview
 htop
 imagemagick
 inetutils
+inkscape
 intellij-idea-community-edition
 ipython
 iwd
@@ -84,6 +88,7 @@ kchmviewer
 kcolorchooser
 kdeconnect
 keepassxc
+konqueror
 konsole
 kotlin
 krdc
@@ -103,7 +108,6 @@ linux
 linux-firmware
 linux-headers
 lmms
-logseq-desktop
 lrzip
 lua-language-server
 lzop
@@ -117,7 +121,6 @@ nano
 neofetch
 neovim-git
 neovim-remote
-neovim-symlinks
 nerd-fonts-fira
 networkmanager
 networkmanager-openvpn
@@ -140,12 +143,14 @@ okular
 onedrive-abraunegg
 opencl-nvidia
 os-prober
+otf-cascadia-code
 otf-firamono-nerd
 paru
 pavucontrol
 php
 plasma5-wallpapers-dynamic
 plasma-meta
+plasma-wayland-session
 pnpm
 postman-bin
 prettier
@@ -153,7 +158,9 @@ proxychains-ng
 pulseaudio-alsa
 pulseaudio-bluetooth
 pyside6
+python-pandas
 python-pip
+python-pyclip
 python-pygments
 python-setuptools
 qbittorrent-enhanced-git
@@ -192,7 +199,7 @@ texlive-pstricks
 texlive-publishers
 thunar
 thunar-volman
-thunderbird
+thunderbird-beta-bin
 thunderbird-i18n-zh-cn
 tldr
 tlp
@@ -221,6 +228,7 @@ wine-for-wechat
 wine-wechat-setup
 wireless-regdb
 wireshark-qt
+wl-clipboard
 wmctrl
 wqy-bitmapfont
 wqy-microhei
