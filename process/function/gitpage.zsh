@@ -68,7 +68,7 @@ function blog() {
             case "$edit" in
                 "1" )
                     echo 'opening with vim'
-                    /usr/bin/nvim $p;;
+                    /usr/bin/vim $p;;
                 "2" )
                     echo 'opening with marktext'
                     /usr/bin/marktext $p;;
