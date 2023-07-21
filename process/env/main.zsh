@@ -18,6 +18,8 @@ export PATH=$PATH:~/.config/yarn/global/node_modules/.bin
 export NODE_ENV='development'
 export N_PREFIX=$HOME/.n
 export NPM_PACKAGES="$HOME/.npm-packages"
+# load node global lib
+export NODE_PATH=$NODE_PATH:/usr/lib/node_modules:/usr/local/lib/node_modules:$NPM_PACKAGES/lib/node_modules
 
 # ruby lib
 export PATH=$GOPATH/bin:$PATH
