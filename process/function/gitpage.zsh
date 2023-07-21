@@ -44,13 +44,15 @@ function blog() {
             ;;
         'push' )
             BLOG_PATH=$BLOG_PATH hugo-manage push
-            $BLOG_PATH hugo-manage push
             ;;
         'only-server' )
             BLOG_PATH=$BLOG_PATH hugo-manage only-server
             ;;
         'sync' )
             BLOG_PATH=$BLOG_PATH hugo-manage sync
+            ;;
+        'hash' )
+            BLOG_PATH=$BLOG_PATH hugo-manage hash
             ;;
         'rm' )
             local p="$BLOG_PATH/content/post/$2.md"
@@ -61,6 +63,9 @@ function blog() {
             rm -rf $BLOG_PATH/public/*;;
         'public' )
             cd $BLOG_PATH/public
+            ;;
+        'build' )
+            BLOG_PATH=$BLOG_PATH hugo-manage build
             ;;
     esac
 }
@@ -89,7 +94,7 @@ function _blog() {
         'server' )
             ;;
         * ) # 不完整，以上是补全完整的，完整的且后面无须补全的就不补全
-            suggest=($(compgen -W 'new open push rm server only-server sync public' $op))
+            suggest=($(compgen -W 'new open push rm server only-server sync public hash' $op))
     esac
     COMPREPLY=(${suggest[@]})
 }

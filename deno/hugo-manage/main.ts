@@ -20,6 +20,8 @@ function main() {
         hugo.build();
     } else if (op === 'new') {
         hugo.createFile(Deno.args[1]);
+    } else if (op === 'hash') {
+        hugo.makeHash();
     }
 }
 

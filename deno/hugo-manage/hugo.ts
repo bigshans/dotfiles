@@ -45,6 +45,24 @@ export class Hugo {
         return this.key;
     }
 
+    public async makeHash() {
+        const key = this.getKey();
+        const shadowPath = this.getPrivateShadow();
+        if (!existsSync(shadowPath)) {
+            Deno.mkdirSync(shadowPath);
+        }
+        const shadowFiles = await getFiles(this.getPrivateShadow());
+        shadowFiles.forEach((f) => {
+            const text = f.getText();
+            const info = parseMarkdown(text);
+            const hash = hmacSHA1(info.content, key);
+            if (hash !== info.meta.hash) {
+                info.meta.hash = hash;
+                f.writeText(buildMarkdown(info));
+            }
+        });
+    }
+
     public async compareAndSync() {
         const key = this.getKey();
         const privateFiles = await getFiles(this.getPrivatePath());
@@ -143,6 +161,7 @@ export class Hugo {
         await this.compareAndSync();
         await this.runHugo();
         await this.encryptPublic();
+        console.log("finished");
     }
 
     public async onlyServer() {
