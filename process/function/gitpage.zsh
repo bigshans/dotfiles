@@ -18,6 +18,7 @@ function blog() {
             if [[ "$2" =~ ^private/.* ]]; then
                 local p="$BLOG_PATH/content/$2.md"
             fi
+            echo $p
             if [ ! -f $p ]; then
                 BLOG_PATH=$BLOG_PATH hugo-manage new $2
             fi
@@ -67,6 +68,11 @@ function blog() {
         'build' )
             BLOG_PATH=$BLOG_PATH hugo-manage build
             ;;
+        'reset' )
+            cd $BLOG_PATH/public
+            git restore .
+            cd $BLOG_PATH
+            git restore .
     esac
 }
 
