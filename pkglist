@@ -61,7 +61,6 @@ global
 gnome-keyring
 gnome-weather
 go
-goldendict-ng-git
 gparted
 gradle
 grub
@@ -107,6 +106,7 @@ libvdpau-va-gl
 linux
 linux-firmware
 linux-headers
+lldb
 lmms
 lrzip
 lua-language-server
@@ -115,11 +115,12 @@ man-db
 masterpdfeditor
 maven
 mdbook
+mitmproxy
 mpv
 mysql
 nano
 neofetch
-neovim-git
+neovim
 neovim-remote
 nerd-fonts-fira
 networkmanager
@@ -127,6 +128,7 @@ networkmanager-openvpn
 nextcloud-client
 nm-connection-editor
 nodejs
+notes
 notion-app-enhanced
 noto-fonts-cjk
 noto-fonts-emoji
@@ -153,6 +155,7 @@ plasma-meta
 plasma-wayland-session
 pnpm
 postman-bin
+pot-translation-bin
 prettier
 proxychains-ng
 pulseaudio-alsa
@@ -168,6 +171,7 @@ qemu-full
 qopenvpn
 ranger
 rhythmbox
+ripgrep
 ruby
 rust
 samba
@@ -177,14 +181,16 @@ sqlitebrowser
 squashfs-tools
 sshfs
 sshpass
-steam
-steam-native-runtime
 strace
 stylua
 sudo
 tcl
 tcpdump
 telegram-desktop
+tesseract
+tesseract-data-eng
+tesseract-data-jpn
+tesseract-data-jpn_vert
 texlive-basic
 texlive-bibtexextra
 texlive-fontsextra
@@ -223,6 +229,8 @@ ventoy-bin
 virtualbox
 virtualbox-ext-vnc
 virtualbox-guest-iso
+vivaldi
+vivaldi-ffmpeg-codecs
 wget
 wine-for-wechat
 wine-wechat-setup
