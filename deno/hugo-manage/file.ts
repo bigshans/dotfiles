@@ -91,7 +91,7 @@ export function parseMarkdown(content: string) {
             markdownInfo.meta.hash = _meta.replace("hash: ", "");
         }
     }
-    if (!markdownInfo.meta.hash) {
+    if (markdownInfo.meta.isPrivate && !markdownInfo.meta.hash) {
         metaLines.push('hash: ');
     }
     markdownInfo.meta.content = metaLines.join("\n");
