@@ -129,7 +129,10 @@ def write_clash_config(path: str, data: str):
         f.write(data)
 
 def download(url):
-    response = requests.get(url)
+    headers = {
+            "User-Agent": "ClashForAndroid/2.4.14",  # V2board 根据 UA 下发配置
+    }
+    response = requests.get(url, headers=headers)
     return response.text
 
 def inject_config(config: Any):
