@@ -11,6 +11,8 @@ export SASS_BINARY_SITE="https://cdn.npmmirror.com/binaries/node-sass"
 export SWC_BINARY_SITE="https://cdn.npmmirror.com/binaries/node-swc"
 export NWJS_URLBASE="https://cdn.npmmirror.com/binaries/nwjs/v"
 export PUPPETEER_DOWNLOAD_HOST="https://cdn.npmmirror.com/binaries"
+# 解决方案: https://juejin.cn/post/7244567350720184357
+export PUPPETEER_DOWNLOAD_BASE_URL="https://cdn.npmmirror.com/binaries/chrome-for-testing"
 export SENTRYCLI_CDNURL="https://cdn.npmmirror.com/binaries/sentry-cli"
 export SAUCECTL_INSTALL_BINARY_MIRROR="https://cdn.npmmirror.com/binaries/saucectl"
 export npm_config_sharp_binary_host="https://cdn.npmmirror.com/binaries/sharp"

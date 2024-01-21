@@ -5,6 +5,7 @@ archlinuxcn-keyring
 aria2
 arj
 ark
+asar
 audacious
 base
 base-devel
@@ -15,10 +16,10 @@ bear
 blender
 blueman
 calibre
-ccls
 clash
 cliphist
 cmake
+cmark
 copyq
 cscope
 ctags
@@ -43,13 +44,11 @@ fcitx5-configtool
 fcitx5-gtk
 fcitx5-qt
 fcitx5-rime
-fd
 feh
 feishu-bin
 filelight
 firefox-nightly-zh-cn
 flameshot
-fossil
 freerdp
 fsearch
 fuse2
@@ -79,7 +78,6 @@ jadx
 jdk11-openjdk
 jdk8-openjdk
 jdk-openjdk
-joplin
 joplin-desktop
 jq
 jupyter-notebook
@@ -141,7 +139,7 @@ noto-fonts-extra
 npm
 ntfs3-dkms
 ntfs-3g
-nvidia
+nvidia-dkms
 nvidia-prime
 nvidia-settings
 obsidian
@@ -153,6 +151,7 @@ os-prober
 otf-cascadia-code
 otf-firamono-nerd
 otf-font-awesome
+pamac-aur
 paru
 pavucontrol
 php
@@ -182,7 +181,6 @@ ranger
 rhythmbox
 ripgrep
 rsync
-rtl8821cu-dkms-git
 ruby
 rust
 rust-analyzer

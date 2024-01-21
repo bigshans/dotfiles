@@ -1,3 +1,4 @@
+fpath+=~/.zfunc
 ENV_PROJECT=$PROJECT/process/env
 export GOPROXY=https://goproxy.cn
 export GO111MODULE=on
@@ -39,6 +40,8 @@ export PATH=$N_PREFIX/bin:$PATH
 export PATH=$NPM_PACKAGES/bin:$PATH
 export PATH="/home/aerian/.deno/bin:$PATH"
 export PATH="$HOME/.basher/bin:$PATH"   ##basher5ea843
+# C# config
+export PATH="$PATH:$HOME/.dotnet/tools"
 eval "$(basher init - zsh)"             ##basher5ea843
 
 DEBUGINFOD_URLS="https://debuginfod.archlinux.org https://repo.archlinuxcn.org"

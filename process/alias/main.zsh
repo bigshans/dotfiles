@@ -82,6 +82,6 @@ alias gen_pkglist="comm -23 <(pacman -Qeq|sort) <(pacman -Qmq|sort) > pkglist"
 # file alias
 alias -s org="emacs -nw"
 
-alias ai="pc chatgpt-cli --api_key `cat ~/.openai_key`"
+alias ai="gpt4all repl"
 
 source $ALIAS_PWD/git.zsh
