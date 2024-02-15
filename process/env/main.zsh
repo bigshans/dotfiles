@@ -5,8 +5,8 @@ export GO111MODULE=on
 
 export BROWSER="/usr/bin/firefox-nightly"
 export GOPATH=$HOME/go
-export ANDROID_SDK_ROOT=/mnt/disk/Android
-export ANDROID_HOME=/mnt/disk/Android/
+export ANDROID_SDK_ROOT=/projects/aerian/.android
+export ANDROID_HOME=/projects/aerian/.android
 
 export PATH=$HOME/.config/emacs/bin:$PATH
 export SONAR_SCANNER_HOME="/opt/sonar-scanner"
@@ -47,3 +47,6 @@ eval "$(basher init - zsh)"             ##basher5ea843
 DEBUGINFOD_URLS="https://debuginfod.archlinux.org https://repo.archlinuxcn.org"
 
 source $ENV_PROJECT/npm.zsh
+export CAPACITOR_ANDROID_STUDIO_PATH=$(where android-studio)
+export STARTSHIP_CONFIG=$HOME/dotfiles/starship/starship.toml
+export EDITOR=vim
