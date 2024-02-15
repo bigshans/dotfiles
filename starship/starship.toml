@@ -20,6 +20,10 @@ symbol = " "
 [cmake]
 format = '[$symbol($version)]($style) '
 
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
+
 [cobol]
 format = '[$symbol($version)]($style) '
 
@@ -83,7 +87,7 @@ deleted = "​"
 stashed = "≡"
 
 [git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
+format = '\([$state($progress_current/$progress_total)]($style)\) '
 style = "bright-black"
 
 [golang]
@@ -254,7 +258,7 @@ symbol = " "
 format = '[$symbol$workspace]($style) '
 
 [time]
-format = ' [$time]($style) '
+format = '[$time]($style) '
 
 [username]
 format = '[$user]($style) '
