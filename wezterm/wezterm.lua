@@ -14,6 +14,10 @@ local K_C = function (key, action)
     return K('CTRL', key, action)
 end
 
+local K_CTAL = function (key, action)
+  return K('CTRL|ALT', key, action)
+end
+
 local keys = {
     K_CTSH('(', act.SplitHorizontal { domain = 'CurrentPaneDomain' }),
     K_CTSH(')', act.SplitVertical { domain = 'CurrentPaneDomain' }),
@@ -24,7 +28,7 @@ local keys = {
    -- activate pane selection mode with numeric labels
    K_C('9', act.PaneSelect),
     -- show the pane selection mode, but have it swap the active and selected panes
-    K_C('0', act.PaneSelect { mode = 'SwapWithActive' }),
+    K_C('0', act.PaneSelect { mode = 'SwapWithActive' })
 }
 
 for _, v in ipairs {'Left', 'Right', 'Up', 'Down'} do
@@ -56,18 +60,25 @@ return {
       action = act.Nop,
     },
   },
+    -- 隐藏标题
+    -- window_decorations = "NONE",
     colors = darcula,
     tab_bar_at_bottom = true,
     use_fancy_tab_bar = false,
     hide_tab_bar_if_only_one_tab = true,
     enable_scroll_bar = true,
-    window_background_opacity = 0.8,
-    -- font = wezterm.font({
-    --     family = 'JetBrains Mono',
-    --     harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
-    -- }),
+    window_background_opacity = 0.85,
+    font = wezterm.font_with_fallback({
+        -- 测试字符串 oO01Ili
+        { family = 'monospace' },
+        'Noto Sans CJK SC',
+        'Source Code Pro',
+        'Iosevka Nerd Font',
+        'Hack Nerd Font',
+        'FuraMono Nerd Font'
+    }),
     harfbuzz_features = { 'zero' },
-    font_size = 14,
+    font_size = 13.5,
     window_padding = {
         left = 0,
         right = 0,

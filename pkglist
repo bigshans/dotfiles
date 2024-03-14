@@ -40,6 +40,7 @@ emacs-nativecomp
 eslint
 espeak-ng
 ethtool
+exfatprogs
 exo
 falkon
 fcitx5
@@ -52,7 +53,6 @@ filelight
 firefox-nightly-zh-cn
 flameshot
 freerdp
-fsearch
 fuse2
 fzf
 garcon
@@ -99,6 +99,7 @@ kcolorchooser
 kdeconnect
 kdiff3
 keepassxc
+kfind
 konqueror
 konsole
 kotlin
@@ -131,7 +132,9 @@ maven
 mdbook
 mission-center
 mitmproxy
+mlocate
 mpv
+mtools
 mysql
 nano
 nasm
@@ -204,6 +207,7 @@ samba
 scrcpy
 sddm
 simplescreenrecorder
+soundconverter
 sqlitebrowser
 squashfs-tools
 sshfs

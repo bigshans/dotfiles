@@ -1,0 +1,9 @@
+[window]
+opacity=0.95
+blur=true
+
+[font]
+size=14
+
+[terminal]
+osc52="CopyPaste"

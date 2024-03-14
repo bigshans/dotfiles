@@ -11,8 +11,8 @@ try:
 except ImportError:
     from yaml import Loader, Dumper
 
-CLASH_CONFIG_DIR = '~/.config/clash'
-NEDD_RESTART = True
+CLASH_CONFIG_DIR = expanduser('~/.config/clash')
+NEED_RESTART = True
 
 class Feed:
     def __init__(self):
@@ -79,7 +79,7 @@ class Feed:
 
     def parser(self, key):
         if key in self.__cached:
-            self.__yaml_map[key] = load_yaml(self.__cached[key])
+            self.__yaml_map[key] = self.__cached[key]
         else:
             self.fetch(key)
             self.parser(key)
@@ -121,7 +121,7 @@ def dump_yaml(data: Any):
 def read_yaml_file(path: str):
     content = None
     with open(expanduser(path), 'r') as f:
-        content = load_yaml(f)
+        content = load_yaml(f.read())
     return content
 
 def write_clash_config(path: str, data: str):
@@ -155,7 +155,7 @@ def update_default(config):
     injected = dump(inject_config(config))
     write_clash_config(f"{CLASH_CONFIG_DIR}/config.yaml", injected)
     print("Default configuration is updated!")
-    if NEDD_RESTART:
+    if NEED_RESTART:
         print("Run systemctl --user restart clash.service")
         subprocess.call(['systemctl', '--user', 'restart', 'clash.service'])
     else:
