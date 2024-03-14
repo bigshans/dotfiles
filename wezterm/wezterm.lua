@@ -1,5 +1,6 @@
-local wezterm = require("wezterm")
-local darcula = require("darcula")
+local wezterm = require 'wezterm'
+local darcula = require 'darcula'
+require 'remember-win-size'
 local act = wezterm.action
 
 local function K(prefix, key, action)
