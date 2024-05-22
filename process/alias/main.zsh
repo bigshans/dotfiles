@@ -64,7 +64,6 @@ alias par='paru -Ss'
 alias pai='paru -S'
 alias ppu='proxychains -q paru'
 alias ppi='proxychains -q paru -S'
-alias yay='paru'
 
 alias pack-marktext='mv linux-unpacked marktext-x64 && tar cvf marktext-x64.tar.gz marktext-x64'
 

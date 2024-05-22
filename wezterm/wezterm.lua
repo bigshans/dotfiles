@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm'
 local darcula = require 'darcula'
-require 'remember-win-size'
+-- require 'remember-win-size'
 local act = wezterm.action
 
 local function K(prefix, key, action)
@@ -46,6 +46,7 @@ for i = 1, 8 do
 end
 
 return {
+    front_end = 'Software',
     -- 修复 vim 下使用 C-d 后 Meta 键失灵的问题。1
     enable_csi_u_key_encoding = true,
     keys = keys,
