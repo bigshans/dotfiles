@@ -95,7 +95,7 @@ error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](green)"
 
 [git_branch]
-# format = 'via [$symbol $branch]($style)'
+# format = '[$symbol $branch]($style)'
 symbol = "\ue0a0"
 
 [git_status]
@@ -114,137 +114,153 @@ stashed = "≡"
 # format = '\([$state($progress_current/$progress_total)]($style)\)'
 # style = "bright-black"
 
+[aws]
+symbol = "  "
+
 [bun]
-format = "via [$symbol]($style)"
+format = "[$symbol]($style)"
 
 [buf]
-format = "via [$symbol]($style)"
+format = "[$symbol]($style)"
+symbol = " "
 
 [cmake]
-format = "via [$symbol]($style)"
+format = "[$symbol]($style)"
+
+[c]
+symbol = " "
 
 [cobol]
-format = "via [$symbol]($style)"
+format = "[$symbol]($style)"
 
 [crystal]
-format = "via [$symbol]($style)"
+format = "[$symbol]($style)"
 
 [daml]
-format = "via [$symbol]($style)"
+format = "[$symbol]($style)"
 
 [dart]
-format = "via [$symbol]($style)"
+format = "[$symbol]($style)"
 
 [deno]
-format = "via [$symbol]($style)"
+format = "[$symbol]($style)"
 
 [dotnet]
 format = "[$symbol(🎯 $tfm )]($style)"
 
 [elixir]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [elm]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [erlang]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [fennel]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [gleam]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
+
+[guix_shell]
+symbol = " "
 
 [golang]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [gradle]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
+
+[haskell]
+symbol = " "
 
 [haxe]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [helm]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [java]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [julia]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [kotlin]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [lua]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [meson]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [nim]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
+
+[nix_shell]
+symbol = " "
 
 [nodejs]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [ocaml]
-format = 'via [$symbol(\($switch_indicator$switch_name\) )]($style)'
+format = '[$symbol(\($switch_indicator$switch_name\) )]($style)'
 
 [opa]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [perl]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [php]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [pulumi]
-format = 'via [$symbol$stack]($style)'
+format = '[$symbol$stack]($style)'
 
 [purescript]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [python]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [quarto]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [raku]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [red]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [rlang]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [ruby]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [rust]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [solidity]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [typst]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [swift]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [vagrant]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [vlang]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [zig]
-format = 'via [$symbol]($style)'
+format = '[$symbol]($style)'
 
 [username]
 show_always = true
@@ -298,5 +314,9 @@ Void = " "
 Windows = "󰍲 "
 
 [directory]
-format = "[ $path ]($style)"
+format = "[ $path]($style)[$read_only]($read_only_style) "
 truncation_length = 3
+read_only = " 󰌾"
+
+[package]
+disabled=true
