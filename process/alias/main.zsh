@@ -82,5 +82,6 @@ alias gen_pkglist="comm -23 <(pacman -Qeq|sort) <(pacman -Qmq|sort) > pkglist"
 alias -s org="emacs -nw"
 
 alias ai="gpt4all repl"
+alias deno-run="deno run -A"
 
 source $ALIAS_PWD/git.zsh
