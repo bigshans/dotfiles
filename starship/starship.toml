@@ -93,9 +93,13 @@ $character"""
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](green)"
+# success_symbol = "[#](purple)"
+# error_symbol = "[#](red)"
+# vimcmd_symbol = "[#](green)"
 
 [git_branch]
-# format = '[$symbol $branch]($style)'
+format = "[$symbol$branch(:$remote_branch)]($style) "
+style="#14a5ae"
 symbol = "\ue0a0"
 
 [git_status]
@@ -128,6 +132,7 @@ symbol = " "
 format = "[$symbol]($style)"
 
 [c]
+format = "[$symbol($version(-$name) )]($style)"
 symbol = " "
 
 [cobol]
@@ -264,9 +269,11 @@ format = '[$symbol]($style)'
 
 [username]
 show_always = true
+style_user="#43e8bb bold"
+format="[\ueb99 $user on ]($style)"
 
 [os]
-disabled=false
+disabled=true
 
 [os.symbols]
 Alpaquita = " "
@@ -320,3 +327,7 @@ read_only = " 󰌾"
 
 [package]
 disabled=true
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
