@@ -50,3 +50,6 @@ source $ENV_PROJECT/npm.zsh
 export CAPACITOR_ANDROID_STUDIO_PATH=$(where android-studio)
 export STARTSHIP_CONFIG=$HOME/dotfiles/starship/starship.toml
 export EDITOR=vim
+export PUB_HOSTED_URL=https://pub.flutter-io.cn;
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+export CHROME_EXECUTABLE="vivaldi"

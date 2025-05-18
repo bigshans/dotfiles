@@ -89,6 +89,7 @@ $status\
 $container\
 $shell\
 $character"""
+command_timeout = 100000000000000000
 [character]
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
