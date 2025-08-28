@@ -53,3 +53,5 @@ export EDITOR=vim
 export PUB_HOSTED_URL=https://pub.flutter-io.cn;
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 export CHROME_EXECUTABLE="vivaldi"
+export RUSTUP_UPDATE_ROOT=https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
+export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup

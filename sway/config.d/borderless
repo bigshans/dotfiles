@@ -1,0 +1,15 @@
+#
+# Sway Window Rules
+#
+
+smart_borders on
+gaps inner 0
+gaps outer 0
+default_border pixel
+corner_radius 5
+shadows enable
+shadows_on_csd enable
+shadow_blur_radius 5
+blur enable
+blur passes 2
+blur_radius 3
