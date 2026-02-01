@@ -85,13 +85,22 @@ button:hover {
 #custom-media,
 #tray,
 #mode,
-#idle_inhibitor,
 #scratchpad,
+#custom-scratchpad-indicator,
 #mpd {
     padding: 0 10px;
     color: #ffffff;
     border-radius: 8px;
 }
+
+#idle_inhibitor {
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+/* #custom-scratchpad-indicator { */
+/*   color: blue; */
+/* } */
 
 #window,
 #workspaces {
@@ -300,4 +309,15 @@ label:focus {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+}
+#custom-firefox {
+    background-image: url('/usr/share/icons/hicolor/16x16/apps/firefox-nightly.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+#custom-close {
+    background-color: #2d3436;
 }

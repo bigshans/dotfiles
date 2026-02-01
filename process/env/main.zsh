@@ -9,7 +9,6 @@ export ANDROID_SDK_ROOT=/projects/aerian/.android
 export ANDROID_HOME=/projects/aerian/.android
 
 export PATH=$HOME/.config/emacs/bin:$PATH
-export SONAR_SCANNER_HOME="/opt/sonar-scanner"
 export METALS_JAVA_OPTS='-XX:+UseG1GC -XX:+UseStringDeduplication -Xss4m -Xms100m'
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
@@ -55,3 +54,4 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 export CHROME_EXECUTABLE="vivaldi"
 export RUSTUP_UPDATE_ROOT=https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
 export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
+export OLLAMA_MODELS="/mnt/disk/models" 

@@ -83,5 +83,6 @@ alias -s org="emacs -nw"
 
 alias ai="gpt4all repl"
 alias deno-run="deno run -A"
+alias svi='vim --cmd "let g:coc_off=v:true"'
 
 source $ALIAS_PWD/git.zsh

@@ -2,7 +2,7 @@
 # Sway Window Rules
 #
 
-assign [app_id="(^thunderbird$)"] 3
+# assign [app_id="(^thunderbird$)"] 3
 assign [app_id="(^firefox-nightly$)"] 1
 # assign [app_id="(telegram|TelegramDesktop)"] 1
 
@@ -35,6 +35,7 @@ for_window [app_id="com.nextcloud.desktopclient.nextcloud"] floating enable, sti
 for_window [app_id="org.gnome.Calendar"] floating enable 
 for_window [app_id="org.kde.gwenview"] floating enable 
 for_window [app_id="(telegram|TelegramDesktop)"] floating enable
+for_window [app_id="thunderbird"] move scratchpad
 
 # default floating
 for_window [window_role="pop-up"] floating enable

@@ -29,7 +29,7 @@ exec clash-nyanpasu &
 exec keepassxc &
 exec obsidian &
 exec nextcloud &
-exec thunderbird &
+exec env MOZ_ENABLE_WAYLAND=0 thunderbird &
 exec kdeconnect-indicator
 exec systemctl --user import-environment WAYLAND_DISPLAY
 exec systemctl --user start xdg-desktop-portal-wlr
@@ -59,8 +59,8 @@ exec mpvpaper -o "no-audio --loop-playlist shuffle" -f ALL ~/视频/repeat.mp4
 
 exec sway-audio-idle-inhibit
 exec swayidle -w \
-         timeout 108000 "$HOME/dotfiles/scripts/swaylock-fancy" \
-         timeout 144000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 900 "$HOME/dotfiles/scripts/swaylock-fancy" \
+         timeout 1800 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep "$HOME/dotfiles/scripts/swaylock-fancy" 
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -82,6 +82,7 @@ exec swayidle -w \
       xkb_layout "us"
       xkb_options ctrl:swapcaps
   }
+focus_follows_mouse no
 #
 # You can also configure each device individually.
 # Read `man 5 sway-input` for more information about this section.
@@ -205,7 +206,7 @@ exec swayidle -w \
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym Mod1+Tab scratchpad show
+    bindsym $mod+Tab scratchpad show
 #
 # Resizing containers:
 #

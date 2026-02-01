@@ -1,0 +1,11 @@
+#!/bin/env bash
+
+sudo pkill -9 verge
+sudo systemctl stop clash-verge-service.service
+sudo clash-verge-service-uninstall
+sudo rm -rf /tmp/verge
+sudo mkdir -p /tmp/verge
+sudo chmod 777 /tmp/verge
+sudo clash-verge-service-install
+sudo systemctl start clash-verge-service.service
+sudo chmod 666 /tmp/verge/clash-verge-service.sock

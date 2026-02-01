@@ -6,9 +6,34 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "hyprland/workspaces", "hyprland/window", "custom/logseq","custom/telegram", "wlr/taskbar", "sway/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "battery", "disk#1", "disk#2", "disk#3",  "keyboard-state", "idle_inhibitor", "tray", "custom/wlogout"],
+    "modules-left": [
+        "sway/workspaces",
+        "hyprland/workspaces",
+        "hyprland/window",
+        "custom/logseq",
+        "custom/telegram",
+        "custom/firefox",
+        "custom/close",
+        "custom/scratchpad-indicator",
+        // "wlr/taskbar",
+        "sway/window"
+    ],
+    "modules-center": [
+        "custom/calendar",
+        "clock",
+        "idle_inhibitor"
+    ],
+    "modules-right": [
+        "custom/audio_idle_inhibitor",
+        "pulseaudio",
+        "battery",
+        "disk#1",
+        "disk#2",
+        "disk#3",
+        "keyboard-state",
+        "tray",
+        "custom/wlogout"
+    ],
     // Modules configuration
     "hyprland/workspaces": {
         "on-scroll-up": "hyprctl dispatch workspace e+1",
@@ -121,12 +146,44 @@
             "deactivated": ""
         }
     },
+    "custom/scratchpad-indicator": {
+        "interval": 1,
+        "exec": "swaymsg -t get_tree | jq 'recurse(.nodes[]) | first(select(.name==\"__i3_scratch\")) | .floating_nodes | length | select(. >= 1)'",
+        "format": "<span font-size='large'>{} </span>",
+        "on-click": "swaymsg 'scratchpad show'",
+        "on-click-right": "swaymsg 'move scratchpad'"
+    },
+    "custom/close": {
+        "format": "  🗙  ",
+        "on-click": "swaymsg kill"
+    },
+    "custom/audio_idle_inhibitor": {
+        "format": "{icon}",
+        "exec": "sway-audio-idle-inhibit --dry-print-both-waybar",
+        "exec-if": "which sway-audio-idle-inhibit",
+        "return-type": "json",
+        "format-icons": {
+            "output": "",
+            "input": "",
+            "output-input": "  ",
+            "none": ""
+        }
+    },
     "tray": {
         // "icon-size": 21,
         "spacing": 10
     },
+    "custom/calendar": {
+        "format": "  ",
+        "on-click": "gnome-calendar"
+    },
+    "custom/firefox": {
+        "format": "{}    ",
+        "on-click": "firefox-nightly"
+    },
     "clock": {
-        "format": "{:%Y年%m月%d日, %R}  ",
+        // "format": "{:%Y年%m月%d日, %R}  ",
+        "format": "{:%Y年%m月%d日, %R}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode"          : "year",
