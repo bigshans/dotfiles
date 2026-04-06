@@ -27,16 +27,6 @@ function update_plugin() {
 }
 
 reload() {
-    for proc in ${scripts[@]}
-    do
-        if [[ $proc == $1 ]] then
-            . $PROJECT/process/hooks/pre_$proc/main.zsh
-            . $PROJECT/process/$proc/main.zsh
-            . $PROJECT/process/hooks/after_$proc/main.zsh
-            echo "reload "$1" finished!"
-            return
-        fi
-    done
     source ~/.zshrc
 }
 

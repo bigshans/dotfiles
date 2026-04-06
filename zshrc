@@ -8,24 +8,24 @@ fi
 #!/bin/zsh
 
 export PROJECT=$HOME/dotfiles
-. $PROJECT/process/option/main.zsh
-scripts=('plugin' 'function' 'alias' 'process')
 
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+[[ -f "$PROJECT/zsh/plugins.zsh" ]] && . "$PROJECT/zsh/plugins.zsh"
 [[ -f "$HOME/.config/shell/env.sh" ]] && . "$HOME/.config/shell/env.sh"
+[[ -f "$PROJECT/alias.sh" ]] && . "$PROJECT/alias.sh"
+[[ -f "$PROJECT/zsh/options.zsh" ]] && . "$PROJECT/zsh/options.zsh"
+[[ -f "$PROJECT/zsh/zsh-alias.sh" ]] && . "$PROJECT/zsh/zsh-alias.sh"
 
-for proc in ${scripts[@]}
-do
-    . $PROJECT/process/hooks/pre_$proc/main.zsh
-    . $PROJECT/process/$proc/main.zsh
-    . $PROJECT/process/hooks/after_$proc/main.zsh
+for func_file in $PROJECT/zsh/functions/*.zsh; do
+    source $func_file
 done
 
+eval "$(zoxide init zsh)"
+complete -W "update add config fix init remove wip break ignore typo refactor ui test" cm
+complete -W "plugin function process" reload
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
-fi
-
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)

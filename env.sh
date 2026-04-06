@@ -96,7 +96,7 @@ if [[ $- == *i* ]]; then
 fi
 
 if [[ $XDG_SESSION_TYPE == "wayland" ]] then
-    export QT_IM_MODULE="wayland;fcitx"
+    export QT_IM_MODULE="wayland"
 else
     export GTK_IM_MODULE=fcitx5
     export QT_IM_MODULE=fcitx

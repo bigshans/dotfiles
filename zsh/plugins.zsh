@@ -1,12 +1,3 @@
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# eval "$(starship init zsh)"
-
 antidote=$PROJECT/bundle
 
 PLUGINS=""
@@ -30,3 +21,24 @@ end_plug () {
     source $complied
     unset PLUGINS complied
 }
+
+WHITELIST_OMZ=(
+    completion
+    correction
+    key-bindings
+    history
+    directories
+    git
+)
+
+start_plug
+
+plug "bigshans/ohmyzsh"
+plug "zsh-users/zsh-autosuggestions"
+plug "Aloxaf/fzf-tab"
+plug "zdharma-continuum/fast-syntax-highlighting"
+plug "mfaerevaag/wd"
+
+end_plug
+
+unset start_plug plug end_plug WHITELIST_OMZ
