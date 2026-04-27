@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# --- 环境检测 ---
+HELPER=$(command -v paru || command -v yay)
+
+# --- 标志位提取 ---
+USE_PROXY=""
+USE_AUR=false
+[[ " $* " == *" -p "* ]] && USE_PROXY="proxychains -q"
+[[ " $* " == *" -a "* ]] && USE_AUR=true
+
+# --- 参数分类收集 ---
+FILES=()      # 本地 .pkg.tar.zst 或 .deb 文件
+REMOTE=()     # 仓库包名
+for arg in "$@"; do
+    [[ "$arg" == "-p" || "$arg" == "-a" ]] && continue
+    if [ -f "$arg" ]; then
+        FILES+=("$arg")
+    else
+        REMOTE+=("$arg")
+    fi
+done
+
+# --- 逻辑分发 ---
+if [ "$USE_AUR" = true ]; then
+    # --- AUR 模式 (透传所有参数) ---
+    [[ -z "$HELPER" ]] && { echo "未找到 AUR 助手"; exit 1; }
+    if [ ${#REMOTE[@]} -eq 0 ]; then
+        $USE_PROXY $HELPER -Sua
+    else
+        # 针对 -i, -s, -c 做特殊处理，其余直接透传实现搜索/交互安装
+        case "${REMOTE[0]}" in
+            -c|--clean) sudo pacman -Rns $(pacman -Qdtq) 2>/dev/null; $HELPER -Sc --noconfirm ;;
+            -i|--info)   $HELPER -Si "${REMOTE[@]:1}" ;;
+            *)           $USE_PROXY $HELPER "${REMOTE[@]}" ;;
+        esac
+    fi
+else
+    # --- 官方模式 (批量处理) ---
+    if command -v pacman &> /dev/null; then
+        if [ ${#REMOTE[@]} -eq 0 ] && [ ${#FILES[@]} -eq 0 ]; then
+            sudo $USE_PROXY pacman -Syu
+        else
+            # 批量处理本地文件
+            [ ${#FILES[@]} -gt 0 ] && sudo $USE_PROXY pacman -U "${FILES[@]}"
+            # 批量处理仓库包
+            [ ${#REMOTE[@]} -gt 0 ] && sudo $USE_PROXY pacman -S --needed "${REMOTE[@]}"
+        fi
+    elif command -v apt &> /dev/null; then
+        if [ ${#REMOTE[@]} -eq 0 ] && [ ${#FILES[@]} -eq 0 ]; then
+            sudo $USE_PROXY apt update && sudo $USE_PROXY apt upgrade -y
+        else
+            # 批量处理所有 (apt install 支持同时混入路径和包名)
+            sudo $USE_PROXY apt install -y "${FILES[@]}" "${REMOTE[@]}"
+        fi
+    fi
+fi

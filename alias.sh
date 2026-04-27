@@ -137,3 +137,35 @@ post() {
 waydroid_start() {
   sudo killall dnsmasq && waydroid
 }
+
+build_min_cjk() {
+    make clean
+    make oldconfig
+    make -j$(( $(nproc) / 2 ))
+}
+
+run_cjk_test() {
+    local rotate=${1:-0}
+    qemu-system-x86_64 \
+        -kernel ./arch/x86/boot/bzImage \
+        -initrd /projects/aerian/initrd.img \
+        -append "console=tty1 fbcon=rotate:${rotate} video=800x800" \
+        -vga std \
+        -serial stdio
+}
+
+ist() {
+    sudo $HOME/dotfiles/scripts/inst "$@"
+}
+
+istp() {
+    ist -p "$@"
+}
+
+# AUR 入口：直接多传一个 -a 给脚本
+isa() {
+    $HOME/dotfiles/scripts/inst -a "$@"
+}
+isap() {
+    isa -p "$a"
+}
