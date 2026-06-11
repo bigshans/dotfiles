@@ -62,6 +62,14 @@ _path_add() {
     fi
 }
 
+# 解引用符号链接以获取脚本的真实路径
+if _ENV_SH_DIR="$(dirname "$(readlink -f "$0" 2>/dev/null || echo "$0")")"; then
+    if [ -f "$_ENV_SH_DIR/private-env.sh" ]; then
+        source "$_ENV_SH_DIR/private-env.sh"
+    fi
+fi
+unset _ENV_SH_DIR
+
 # 按照优先级从低到高添加 (越往后添加的优先级越高)
 _path_add "$HOME/.dotnet/tools"
 _path_add "$HOME/.basher/bin"
